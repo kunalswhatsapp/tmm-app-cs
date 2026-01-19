@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-android</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <SupportedOSPlatformVersion>21.0</SupportedOSPlatformVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Resources\Resource.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\AboutResources.txt" />
+  </ItemGroup>
+  <ItemGroup>
+	<PackageReference Include="Trimble.LicensingV2.NET" Version="3.0.363.68" />
+    <PackageReference Include="Trimble.Ssi.Drivers.Common.NET" Version="2025.1.28479.34" />
+    <PackageReference Include="Trimble.Ssi.Drivers.Gnss.NET" Version="2025.1.28479.34" />
+    <PackageReference Include="EM940Lib.Mono.Android" Version="1.0.12.73" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CatalystFacade\CatalystFacade.NET.csproj" />
+  </ItemGroup>
+</Project>

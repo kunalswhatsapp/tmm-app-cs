@@ -1,0 +1,57 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatalystFacade.NET", "CatalystFacade\CatalystFacade.NET.csproj", "{33331973-DE0A-4917-930C-E16DCFF4ABD9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatalystFacade.NET.Droid", "CatalystFacade.Droid\CatalystFacade.NET.Droid.csproj", "{921764CE-C068-4ADE-8A39-2589D4693C8A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatalystFacadeDemo.NET.Droid", "CatalystFacadeDemo.Droid\CatalystFacadeDemo.NET.Droid.csproj", "{C4960CCF-FB0F-4C38-8A54-7DF94C2D5846}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33331973-DE0A-4917-930C-E16DCFF4ABD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33331973-DE0A-4917-930C-E16DCFF4ABD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33331973-DE0A-4917-930C-E16DCFF4ABD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33331973-DE0A-4917-930C-E16DCFF4ABD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{921764CE-C068-4ADE-8A39-2589D4693C8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{921764CE-C068-4ADE-8A39-2589D4693C8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{921764CE-C068-4ADE-8A39-2589D4693C8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{921764CE-C068-4ADE-8A39-2589D4693C8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4960CCF-FB0F-4C38-8A54-7DF94C2D5846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4960CCF-FB0F-4C38-8A54-7DF94C2D5846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4960CCF-FB0F-4C38-8A54-7DF94C2D5846}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C4960CCF-FB0F-4C38-8A54-7DF94C2D5846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4960CCF-FB0F-4C38-8A54-7DF94C2D5846}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4960CCF-FB0F-4C38-8A54-7DF94C2D5846}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{7AB8DC24-1636-47D5-9853-99A809800070}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AB8DC24-1636-47D5-9853-99A809800070}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AB8DC24-1636-47D5-9853-99A809800070}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AB8DC24-1636-47D5-9853-99A809800070}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93C9EC02-7B63-4FCD-8EDD-E4743ECBD001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93C9EC02-7B63-4FCD-8EDD-E4743ECBD001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93C9EC02-7B63-4FCD-8EDD-E4743ECBD001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93C9EC02-7B63-4FCD-8EDD-E4743ECBD001}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3107239D-6FAB-4B28-A258-963F7E112725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3107239D-6FAB-4B28-A258-963F7E112725}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3107239D-6FAB-4B28-A258-963F7E112725}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3107239D-6FAB-4B28-A258-963F7E112725}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3107239D-6FAB-4B28-A258-963F7E112725}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3107239D-6FAB-4B28-A258-963F7E112725}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2FFF34A6-F427-4BA5-A9B3-6E98FC1D4F33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FFF34A6-F427-4BA5-A9B3-6E98FC1D4F33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FFF34A6-F427-4BA5-A9B3-6E98FC1D4F33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FFF34A6-F427-4BA5-A9B3-6E98FC1D4F33}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2651587B-19D9-4776-85F7-4C7E22AA216B}
+	EndGlobalSection
+EndGlobal

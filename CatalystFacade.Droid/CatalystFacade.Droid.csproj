@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{380F66CB-034A-4167-9800-5CA63EC0077F}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CatalystFacade.Droid</RootNamespace>
+    <AssemblyName>CatalystFacade.Droid</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <TargetFrameworkVersion>v13.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AIDLService">
+      <HintPath>..\SSI\libs\AIDLService.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Android" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Trimble.EMPOWER.Common.Droid, Version=1.0.0.25, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SSI\libs\Trimble.EMPOWER.Common.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Trimble.EMPOWER.JavaBinding.Droid, Version=1.0.0.25, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SSI\libs\Trimble.EMPOWER.JavaBinding.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Trimble.EMPOWER.Manager.Droid, Version=1.0.0.25, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SSI\libs\Trimble.EMPOWER.Manager.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Trimble.Licensing.Android">
+      <HintPath>..\SSI\libs\Trimble.Licensing.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Trimble.Licensing.Interfaces">
+      <HintPath>..\SSI\libs\Trimble.Licensing.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Trimble.Ssi.Core">
+      <HintPath>..\SSI\libs\Trimble.Ssi.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Trimble.Ssi.Driver.AndroidService.Driver.Catalyst.Android">
+      <HintPath>..\SSI\libs\Trimble.Ssi.Driver.AndroidService.Driver.Catalyst.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Trimble.Ssi.Driver.AndroidService.Driver.Catalyst.JavaBindings">
+      <HintPath>..\SSI\libs\Trimble.Ssi.Driver.AndroidService.Driver.Catalyst.JavaBindings.dll</HintPath>
+    </Reference>
+    <Reference Include="Trimble.Ssi.DriverManagement.Android">
+      <HintPath>..\SSI\libs\Trimble.Ssi.DriverManagement.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Trimble.Ssi.Interfaces">
+      <HintPath>..\SSI\libs\Trimble.Ssi.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Trimble.Ssi.Driver.CarpoBased.Driver.RSeries.Android">
+      <HintPath>..\SSI\libs\Trimble.Ssi.Driver.CarpoBased.Driver.RSeries.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Trimble.Ssi.DriverCommon.Core.Android">
+      <HintPath>..\SSI\libs\Trimble.Ssi.DriverCommon.Core.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="TDDTransformationDroid.dll">
+      <HintPath>..\SSI\libs\TDDTransformationDroid.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ASerialPort.cs" />
+    <Compile Include="BluetoothCommunicator.cs" />
+    <Compile Include="CatalystFacade.cs" />
+    <Compile Include="CatalystFacadeActivity.cs" />
+    <Compile Include="EMPowerTCPCommunicator.cs" />
+    <Compile Include="OnboardSerialCommunicator.cs" />
+    <Compile Include="Resources\Resource.Designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TCPCommunicator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Resources\AboutResources.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Values\Strings.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CatalystFacade\CatalystFacade.csproj">
+      <Project>{1BCA2E37-F83E-40B0-B75F-E1F1E87BDD0D}</Project>
+      <Name>CatalystFacade</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf">
+      <Version>3.24.4</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

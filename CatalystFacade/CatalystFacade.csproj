@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Trimble.Ssi.Components.Core">
+      <HintPath>..\SSI\libs\Trimble.Ssi.Components.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Trimble.Ssi.Core">
+      <HintPath>..\SSI\libs\Trimble.Ssi.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Trimble.Ssi.Interfaces.Gnss">
+      <HintPath>..\SSI\libs\Trimble.Ssi.Interfaces.Gnss.dll</HintPath>
+    </Reference>
+    <Reference Include="Trimble.Ssi.Interfaces">
+      <HintPath>..\SSI\libs\Trimble.Ssi.Interfaces.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

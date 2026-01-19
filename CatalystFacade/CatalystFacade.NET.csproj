@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Trimble.LicensingV2.NET" Version="3.0.363.68" />
+    <PackageReference Include="Trimble.Ssi.Drivers.Common.NET" Version="2025.1.28479.34" />
+    <PackageReference Include="Trimble.Ssi.Drivers.Gnss.NET" Version="2025.1.28479.34" />
+    <PackageReference Include="Trimble.TDDTransformation.NET" Version="2025.1.28479.34" />
+  </ItemGroup>
+</Project>
