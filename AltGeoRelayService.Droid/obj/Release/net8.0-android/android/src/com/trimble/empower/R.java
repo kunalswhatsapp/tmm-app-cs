@@ -8,6 +8,6 @@ package com.trimble.empower;
 
 public final class R {
 	public static final class string {
-		public static final int com_trimble_empower_modulemanager_app_name = 0x7f090062;
+		public static final int com_trimble_empower_modulemanager_app_name = 0x7f090069;
 	}
 }

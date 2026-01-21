@@ -98,8 +98,8 @@
   <string name="YawPrecision">Yaw Precision:</string>
   <string name="LastApiRequestResponse">Last API Request/Response</string>
   <string name="RequestPayload">Request Payload:</string>
-  <string name="Response">Response:</string>
-  <string name="Status">Status:</string>
+  <string name="ApiResponse">Response:</string>
+  <string name="ApiStatus">Status:</string>
   <string name="NoDataSentYet">No data sent yet</string>
   <string name="NoResponseYet">No response yet</string>
   <string name="NoStatus">No status</string>
