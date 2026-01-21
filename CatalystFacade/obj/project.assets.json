@@ -1,0 +1,692 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "Newtonsoft.Json/13.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Trimble.LicensingV2.NET/3.0.363.68": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Trimble.Licensing.Interfaces.dll": {},
+          "lib/net8.0/Trimble.LicensingV2.NET.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Trimble.Licensing.Interfaces.dll": {},
+          "lib/net8.0/Trimble.LicensingV2.NET.dll": {
+            "related": ".pdb"
+          }
+        },
+        "build": {
+          "buildTransitive/Trimble.LicensingV2.NET.targets": {}
+        }
+      },
+      "Trimble.Ssi.Drivers.Common.NET/2025.1.28479.34": {
+        "type": "package",
+        "dependencies": {
+          "Trimble.LicensingV2.NET": "3.0.353.62"
+        },
+        "compile": {
+          "lib/net8.0/Trimble.Ssi.Components.Core.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.Core.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.DriverCommon.Core.NET.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.DriverCommon.Interfaces.NET.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.DriverManagement.NET.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.DriverProxy.Common.NET.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.Drivers.Common.NET.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.Interfaces.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Trimble.Ssi.Components.Core.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.Core.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.DriverCommon.Core.NET.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.DriverCommon.Interfaces.NET.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.DriverManagement.NET.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.DriverProxy.Common.NET.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.Drivers.Common.NET.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.Interfaces.dll": {
+            "related": ".pdb"
+          }
+        },
+        "build": {
+          "buildTransitive/Trimble.Ssi.Drivers.Common.NET.targets": {}
+        }
+      },
+      "Trimble.Ssi.Drivers.Gnss.NET/2025.1.28479.34": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
+          "Trimble.Ssi.Drivers.Common.NET": "2025.1.28479.34",
+          "Trimble.TDDTransformation.NET": "2025.1.28479.34"
+        },
+        "compile": {
+          "lib/net8.0/Trimble.Ssi.Driver.CarpoBased.Driver.RSeries.NET.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.Driver.CarpoBased.Driver.SP80.NET.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.Driver.MockGnss.NET.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.DriverCommon.Interfaces.Gnss.NET.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.DriverProxy.Gnss.NET.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.Drivers.Gnss.NET.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.Interfaces.Gnss.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Trimble.Ssi.Driver.CarpoBased.Driver.RSeries.NET.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.Driver.CarpoBased.Driver.SP80.NET.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.Driver.MockGnss.NET.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.DriverCommon.Interfaces.Gnss.NET.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.DriverProxy.Gnss.NET.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.Drivers.Gnss.NET.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Trimble.Ssi.Interfaces.Gnss.dll": {
+            "related": ".pdb"
+          }
+        },
+        "build": {
+          "buildTransitive/Trimble.Ssi.Drivers.Gnss.NET.targets": {}
+        }
+      },
+      "Trimble.TDDTransformation.NET/2025.1.28479.34": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Trimble.TDDTransformation.NET.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Trimble.TDDTransformation.NET.dll": {
+            "related": ".pdb"
+          }
+        },
+        "build": {
+          "buildTransitive/Trimble.TDDTransformation.NET.targets": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Newtonsoft.Json/13.0.3": {
+      "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
+      "type": "package",
+      "path": "newtonsoft.json/13.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "README.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/net6.0/Newtonsoft.Json.dll",
+        "lib/net6.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.3.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
+    "Trimble.LicensingV2.NET/3.0.363.68": {
+      "sha512": "lLjNORa+xrnbf7lAjrULnzcU458+7g+FmXugZ32L10RxN4py8IDOyTMrnwSduA0WX5aiOp2esDutXqQ418D8RQ==",
+      "type": "package",
+      "path": "trimble.licensingv2.net/3.0.363.68",
+      "files": [
+        ".nupkg.metadata",
+        "build/Trimble.LicensingV2.NET.targets",
+        "buildTransitive/Trimble.LicensingV2.NET.targets",
+        "lib/net8.0-android34.0/AIDLService.dll",
+        "lib/net8.0-android34.0/Trimble.Licensing.Interfaces.dll",
+        "lib/net8.0-android34.0/Trimble.LicensingV2.NET.aar",
+        "lib/net8.0-android34.0/Trimble.LicensingV2.NET.dll",
+        "lib/net8.0-android34.0/Trimble.LicensingV2.NET.pdb",
+        "lib/net8.0-android34.0/Trimble.LicensingV2.NET.xml",
+        "lib/net8.0-ios18.0/Trimble.Licensing.Interfaces.dll",
+        "lib/net8.0-ios18.0/Trimble.LicensingV2.NET.dll",
+        "lib/net8.0-ios18.0/Trimble.LicensingV2.NET.pdb",
+        "lib/net8.0-windows10.0.19041/Trimble.Licensing.Interfaces.dll",
+        "lib/net8.0-windows10.0.19041/Trimble.LicensingV2.NET.dll",
+        "lib/net8.0-windows10.0.19041/Trimble.LicensingV2.NET.pdb",
+        "lib/net8.0/Trimble.Licensing.Interfaces.dll",
+        "lib/net8.0/Trimble.LicensingV2.NET.dll",
+        "lib/net8.0/Trimble.LicensingV2.NET.pdb",
+        "runtimes/android-arm64-v8a/libTrimble.Licensing.CSWrapped.so",
+        "runtimes/android-armeabi-v7a/libTrimble.Licensing.CSWrapped.so",
+        "runtimes/android-x86/libTrimble.Licensing.CSWrapped.so",
+        "runtimes/android-x86_64/libTrimble.Licensing.CSWrapped.so",
+        "runtimes/ios-arm64/libLicensingV2Wrapper.a",
+        "runtimes/ios-arm64/libLicensingV2iOS.a",
+        "runtimes/linux-arm64/libTrimble.Licensing.CSWrapped.dll.so.linux",
+        "runtimes/linux-x64/libTrimble.Licensing.CSWrapped.dll.so.linux",
+        "runtimes/windows10-x64/LicensingV2Win.dll",
+        "runtimes/windows10-x64/LicensingV2WinCLRBridge.dll",
+        "runtimes/windows10-x64/Trimble.Licensing.CSWrapped.dll",
+        "runtimes/windows10-x86/LicensingV2Win.dll",
+        "runtimes/windows10-x86/LicensingV2WinCLRBridge.dll",
+        "runtimes/windows10-x86/Trimble.Licensing.CSWrapped.dll",
+        "trimble.licensingv2.net.3.0.363.68.nupkg.sha512",
+        "trimble.licensingv2.net.nuspec"
+      ]
+    },
+    "Trimble.Ssi.Drivers.Common.NET/2025.1.28479.34": {
+      "sha512": "M5cGoG3kSFSckRTHzoIOZJs4KXOB1EQ5W6xOCjbPMHUIcpFKwXYVUZG4A4Cm1OixtHWURfvLaXovKQhyDRkxcA==",
+      "type": "package",
+      "path": "trimble.ssi.drivers.common.net/2025.1.28479.34",
+      "files": [
+        ".nupkg.metadata",
+        "build/Trimble.Ssi.Drivers.Common.NET.targets",
+        "buildTransitive/Trimble.Ssi.Drivers.Common.NET.targets",
+        "lib/net8.0-android34.0/Trimble.Ssi.Components.Core.dll",
+        "lib/net8.0-android34.0/Trimble.Ssi.Components.Core.pdb",
+        "lib/net8.0-android34.0/Trimble.Ssi.Core.dll",
+        "lib/net8.0-android34.0/Trimble.Ssi.Core.pdb",
+        "lib/net8.0-android34.0/Trimble.Ssi.DriverCommon.Core.NET.dll",
+        "lib/net8.0-android34.0/Trimble.Ssi.DriverCommon.Core.NET.pdb",
+        "lib/net8.0-android34.0/Trimble.Ssi.DriverCommon.Interfaces.NET.dll",
+        "lib/net8.0-android34.0/Trimble.Ssi.DriverCommon.Interfaces.NET.pdb",
+        "lib/net8.0-android34.0/Trimble.Ssi.DriverManagement.NET.dll",
+        "lib/net8.0-android34.0/Trimble.Ssi.DriverManagement.NET.pdb",
+        "lib/net8.0-android34.0/Trimble.Ssi.DriverProxy.Common.NET.dll",
+        "lib/net8.0-android34.0/Trimble.Ssi.DriverProxy.Common.NET.pdb",
+        "lib/net8.0-android34.0/Trimble.Ssi.Drivers.Common.NET.aar",
+        "lib/net8.0-android34.0/Trimble.Ssi.Drivers.Common.NET.dll",
+        "lib/net8.0-android34.0/Trimble.Ssi.Drivers.Common.NET.pdb",
+        "lib/net8.0-android34.0/Trimble.Ssi.Drivers.Common.NET.xml",
+        "lib/net8.0-android34.0/Trimble.Ssi.Interfaces.dll",
+        "lib/net8.0-android34.0/Trimble.Ssi.Interfaces.pdb",
+        "lib/net8.0-ios18.0/Trimble.Ssi.Components.Core.dll",
+        "lib/net8.0-ios18.0/Trimble.Ssi.Components.Core.pdb",
+        "lib/net8.0-ios18.0/Trimble.Ssi.Core.dll",
+        "lib/net8.0-ios18.0/Trimble.Ssi.Core.pdb",
+        "lib/net8.0-ios18.0/Trimble.Ssi.DriverCommon.Core.NET.dll",
+        "lib/net8.0-ios18.0/Trimble.Ssi.DriverCommon.Core.NET.pdb",
+        "lib/net8.0-ios18.0/Trimble.Ssi.DriverCommon.Interfaces.NET.dll",
+        "lib/net8.0-ios18.0/Trimble.Ssi.DriverCommon.Interfaces.NET.pdb",
+        "lib/net8.0-ios18.0/Trimble.Ssi.DriverManagement.NET.dll",
+        "lib/net8.0-ios18.0/Trimble.Ssi.DriverManagement.NET.pdb",
+        "lib/net8.0-ios18.0/Trimble.Ssi.DriverProxy.Common.NET.dll",
+        "lib/net8.0-ios18.0/Trimble.Ssi.DriverProxy.Common.NET.pdb",
+        "lib/net8.0-ios18.0/Trimble.Ssi.Drivers.Common.NET.dll",
+        "lib/net8.0-ios18.0/Trimble.Ssi.Drivers.Common.NET.pdb",
+        "lib/net8.0-ios18.0/Trimble.Ssi.Interfaces.dll",
+        "lib/net8.0-ios18.0/Trimble.Ssi.Interfaces.pdb",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.Components.Core.dll",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.Components.Core.pdb",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.Core.dll",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.Core.pdb",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.DriverCommon.Core.NET.dll",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.DriverCommon.Core.NET.pdb",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.DriverCommon.Interfaces.NET.dll",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.DriverCommon.Interfaces.NET.pdb",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.DriverManagement.NET.dll",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.DriverManagement.NET.pdb",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.DriverProxy.Common.NET.dll",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.DriverProxy.Common.NET.pdb",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.Drivers.Common.NET.dll",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.Drivers.Common.NET.pdb",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.Interfaces.dll",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.Interfaces.pdb",
+        "lib/net8.0/Trimble.Ssi.Components.Core.dll",
+        "lib/net8.0/Trimble.Ssi.Components.Core.pdb",
+        "lib/net8.0/Trimble.Ssi.Core.dll",
+        "lib/net8.0/Trimble.Ssi.Core.pdb",
+        "lib/net8.0/Trimble.Ssi.DriverCommon.Core.NET.dll",
+        "lib/net8.0/Trimble.Ssi.DriverCommon.Core.NET.pdb",
+        "lib/net8.0/Trimble.Ssi.DriverCommon.Interfaces.NET.dll",
+        "lib/net8.0/Trimble.Ssi.DriverCommon.Interfaces.NET.pdb",
+        "lib/net8.0/Trimble.Ssi.DriverManagement.NET.dll",
+        "lib/net8.0/Trimble.Ssi.DriverManagement.NET.pdb",
+        "lib/net8.0/Trimble.Ssi.DriverProxy.Common.NET.dll",
+        "lib/net8.0/Trimble.Ssi.DriverProxy.Common.NET.pdb",
+        "lib/net8.0/Trimble.Ssi.Drivers.Common.NET.dll",
+        "lib/net8.0/Trimble.Ssi.Drivers.Common.NET.pdb",
+        "lib/net8.0/Trimble.Ssi.Interfaces.dll",
+        "lib/net8.0/Trimble.Ssi.Interfaces.pdb",
+        "runtimes/android-arm64-v8a/libDRV_TrimbleCommon.so",
+        "runtimes/android-arm64-v8a/libTrimble.Ssi.CSWrapped.Common.so",
+        "runtimes/android-arm64-v8a/libTrimble.Ssi.Driver.CarpoBased.Common.so",
+        "runtimes/android-arm64-v8a/libTrimble.Ssi.Driver.DriverCommon.Common.so",
+        "runtimes/android-arm64-v8a/libTrimble.Ssi.Driver.Mock.Common.so",
+        "runtimes/android-arm64-v8a/libTrimble.Ssi.DriverManagement.so",
+        "runtimes/android-arm64-v8a/libTrimble.Ssi.Interfaces.Common.so",
+        "runtimes/android-arm64-v8a/libc++_shared.so",
+        "runtimes/android-armeabi-v7a/libDRV_TrimbleCommon.so",
+        "runtimes/android-armeabi-v7a/libTrimble.Ssi.CSWrapped.Common.so",
+        "runtimes/android-armeabi-v7a/libTrimble.Ssi.Driver.CarpoBased.Common.so",
+        "runtimes/android-armeabi-v7a/libTrimble.Ssi.Driver.DriverCommon.Common.so",
+        "runtimes/android-armeabi-v7a/libTrimble.Ssi.Driver.Mock.Common.so",
+        "runtimes/android-armeabi-v7a/libTrimble.Ssi.DriverManagement.so",
+        "runtimes/android-armeabi-v7a/libTrimble.Ssi.Interfaces.Common.so",
+        "runtimes/android-armeabi-v7a/libc++_shared.so",
+        "runtimes/android-x86/libDRV_TrimbleCommon.so",
+        "runtimes/android-x86/libTrimble.Ssi.CSWrapped.Common.so",
+        "runtimes/android-x86/libTrimble.Ssi.Driver.CarpoBased.Common.so",
+        "runtimes/android-x86/libTrimble.Ssi.Driver.DriverCommon.Common.so",
+        "runtimes/android-x86/libTrimble.Ssi.Driver.Mock.Common.so",
+        "runtimes/android-x86/libTrimble.Ssi.DriverManagement.so",
+        "runtimes/android-x86/libTrimble.Ssi.Interfaces.Common.so",
+        "runtimes/android-x86/libc++_shared.so",
+        "runtimes/android-x86_64/libDRV_TrimbleCommon.so",
+        "runtimes/android-x86_64/libTrimble.Ssi.CSWrapped.Common.so",
+        "runtimes/android-x86_64/libTrimble.Ssi.Driver.CarpoBased.Common.so",
+        "runtimes/android-x86_64/libTrimble.Ssi.Driver.DriverCommon.Common.so",
+        "runtimes/android-x86_64/libTrimble.Ssi.Driver.Mock.Common.so",
+        "runtimes/android-x86_64/libTrimble.Ssi.DriverManagement.so",
+        "runtimes/android-x86_64/libTrimble.Ssi.Interfaces.Common.so",
+        "runtimes/android-x86_64/libc++_shared.so",
+        "runtimes/ios-arm64/libDRV_TrimbleCommon.a",
+        "runtimes/ios-arm64/libTrimble.Ssi.CSWrapped.Common.a",
+        "runtimes/ios-arm64/libTrimble.Ssi.Driver.CarpoBased.Common.a",
+        "runtimes/ios-arm64/libTrimble.Ssi.Driver.DriverCommon.Common.a",
+        "runtimes/ios-arm64/libTrimble.Ssi.Driver.Mock.Common.a",
+        "runtimes/ios-arm64/libTrimble.Ssi.DriverManagement.a",
+        "runtimes/ios-arm64/libTrimble.Ssi.Interfaces.Common.a",
+        "runtimes/linux-arm64/libDRV_TrimbleCommon.so.linux",
+        "runtimes/linux-arm64/libTrimble.Ssi.CSWrapped.Common.dll.so.linux",
+        "runtimes/linux-arm64/libTrimble.Ssi.Driver.CarpoBased.Common.so.linux",
+        "runtimes/linux-arm64/libTrimble.Ssi.Driver.DriverCommon.Common.so.linux",
+        "runtimes/linux-arm64/libTrimble.Ssi.Driver.Mock.Common.so.linux",
+        "runtimes/linux-arm64/libTrimble.Ssi.DriverManagement.so.linux",
+        "runtimes/linux-arm64/libTrimble.Ssi.Interfaces.Common.so.linux",
+        "runtimes/linux-x64/libDRV_TrimbleCommon.so.linux",
+        "runtimes/linux-x64/libTrimble.Ssi.CSWrapped.Common.dll.so.linux",
+        "runtimes/linux-x64/libTrimble.Ssi.Driver.CarpoBased.Common.so.linux",
+        "runtimes/linux-x64/libTrimble.Ssi.Driver.DriverCommon.Common.so.linux",
+        "runtimes/linux-x64/libTrimble.Ssi.Driver.Mock.Common.so.linux",
+        "runtimes/linux-x64/libTrimble.Ssi.DriverManagement.so.linux",
+        "runtimes/linux-x64/libTrimble.Ssi.Interfaces.Common.so.linux",
+        "runtimes/windows10-x64/DRV_TrimbleCommon.dll",
+        "runtimes/windows10-x64/SsiGeoCom.dll",
+        "runtimes/windows10-x64/Trimble.Ssi.CSWrapped.Common.dll",
+        "runtimes/windows10-x64/Trimble.Ssi.DriverManagement.dll",
+        "runtimes/windows10-x64/USBNative.dll",
+        "runtimes/windows10-x86/DRV_TrimbleCommon.dll",
+        "runtimes/windows10-x86/SsiGeoCom.dll",
+        "runtimes/windows10-x86/Trimble.Ssi.CSWrapped.Common.dll",
+        "runtimes/windows10-x86/Trimble.Ssi.DriverManagement.dll",
+        "runtimes/windows10-x86/USBNative.dll",
+        "trimble.ssi.drivers.common.net.2025.1.28479.34.nupkg.sha512",
+        "trimble.ssi.drivers.common.net.nuspec"
+      ]
+    },
+    "Trimble.Ssi.Drivers.Gnss.NET/2025.1.28479.34": {
+      "sha512": "p9iLY7HaNkRWcevBcT+9O2OS8jhbrTsT2iAQgdkODedd+Xpy14kwhmCCz2C54C+DaTeXDXPAmT7c3ZQQcreoHg==",
+      "type": "package",
+      "path": "trimble.ssi.drivers.gnss.net/2025.1.28479.34",
+      "files": [
+        ".nupkg.metadata",
+        "build/Trimble.Ssi.Drivers.Gnss.NET.targets",
+        "buildTransitive/Trimble.Ssi.Drivers.Gnss.NET.targets",
+        "lib/net8.0-android34.0/Trimble.EMPOWER.Common.Droid.dll",
+        "lib/net8.0-android34.0/Trimble.EMPOWER.JavaBinding.Droid.dll",
+        "lib/net8.0-android34.0/Trimble.EMPOWER.Manager.Droid.dll",
+        "lib/net8.0-android34.0/Trimble.Ssi.Driver.AndroidService.Driver.Catalyst.NET.Android.dll",
+        "lib/net8.0-android34.0/Trimble.Ssi.Driver.AndroidService.Driver.Catalyst.NET.Android.pdb",
+        "lib/net8.0-android34.0/Trimble.Ssi.Driver.AndroidService.Driver.Catalyst.NET.JavaBindings.dll",
+        "lib/net8.0-android34.0/Trimble.Ssi.Driver.CarpoBased.Driver.RSeries.NET.dll",
+        "lib/net8.0-android34.0/Trimble.Ssi.Driver.CarpoBased.Driver.RSeries.NET.pdb",
+        "lib/net8.0-android34.0/Trimble.Ssi.Driver.CarpoBased.Driver.SP80.NET.dll",
+        "lib/net8.0-android34.0/Trimble.Ssi.Driver.CarpoBased.Driver.SP80.NET.pdb",
+        "lib/net8.0-android34.0/Trimble.Ssi.Driver.MockGnss.NET.dll",
+        "lib/net8.0-android34.0/Trimble.Ssi.Driver.MockGnss.NET.pdb",
+        "lib/net8.0-android34.0/Trimble.Ssi.DriverCommon.Interfaces.Gnss.NET.dll",
+        "lib/net8.0-android34.0/Trimble.Ssi.DriverCommon.Interfaces.Gnss.NET.pdb",
+        "lib/net8.0-android34.0/Trimble.Ssi.DriverProxy.Gnss.NET.dll",
+        "lib/net8.0-android34.0/Trimble.Ssi.DriverProxy.Gnss.NET.pdb",
+        "lib/net8.0-android34.0/Trimble.Ssi.Drivers.Gnss.NET.aar",
+        "lib/net8.0-android34.0/Trimble.Ssi.Drivers.Gnss.NET.dll",
+        "lib/net8.0-android34.0/Trimble.Ssi.Drivers.Gnss.NET.pdb",
+        "lib/net8.0-android34.0/Trimble.Ssi.Drivers.Gnss.NET.xml",
+        "lib/net8.0-android34.0/Trimble.Ssi.Interfaces.Gnss.dll",
+        "lib/net8.0-android34.0/Trimble.Ssi.Interfaces.Gnss.pdb",
+        "lib/net8.0-ios18.0/Trimble.Ssi.Driver.CarpoBased.Driver.RSeries.NET.dll",
+        "lib/net8.0-ios18.0/Trimble.Ssi.Driver.CarpoBased.Driver.RSeries.NET.pdb",
+        "lib/net8.0-ios18.0/Trimble.Ssi.Driver.MockGnss.NET.dll",
+        "lib/net8.0-ios18.0/Trimble.Ssi.Driver.MockGnss.NET.pdb",
+        "lib/net8.0-ios18.0/Trimble.Ssi.DriverCommon.Interfaces.Gnss.NET.dll",
+        "lib/net8.0-ios18.0/Trimble.Ssi.DriverCommon.Interfaces.Gnss.NET.pdb",
+        "lib/net8.0-ios18.0/Trimble.Ssi.DriverProxy.Gnss.NET.dll",
+        "lib/net8.0-ios18.0/Trimble.Ssi.DriverProxy.Gnss.NET.pdb",
+        "lib/net8.0-ios18.0/Trimble.Ssi.Drivers.Gnss.NET.dll",
+        "lib/net8.0-ios18.0/Trimble.Ssi.Drivers.Gnss.NET.pdb",
+        "lib/net8.0-ios18.0/Trimble.Ssi.Interfaces.Gnss.dll",
+        "lib/net8.0-ios18.0/Trimble.Ssi.Interfaces.Gnss.pdb",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.Driver.CarpoBased.Driver.RSeries.NET.dll",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.Driver.CarpoBased.Driver.RSeries.NET.pdb",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.Driver.CarpoBased.Driver.SP80.NET.dll",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.Driver.CarpoBased.Driver.SP80.NET.pdb",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.Driver.MockGnss.NET.dll",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.Driver.MockGnss.NET.pdb",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.DriverCommon.Interfaces.Gnss.NET.dll",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.DriverCommon.Interfaces.Gnss.NET.pdb",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.DriverProxy.Gnss.NET.dll",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.DriverProxy.Gnss.NET.pdb",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.Drivers.Gnss.NET.dll",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.Drivers.Gnss.NET.pdb",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.Interfaces.Gnss.dll",
+        "lib/net8.0-windows10.0.19041/Trimble.Ssi.Interfaces.Gnss.pdb",
+        "lib/net8.0/Trimble.Ssi.Driver.CarpoBased.Driver.RSeries.NET.dll",
+        "lib/net8.0/Trimble.Ssi.Driver.CarpoBased.Driver.RSeries.NET.pdb",
+        "lib/net8.0/Trimble.Ssi.Driver.CarpoBased.Driver.SP80.NET.dll",
+        "lib/net8.0/Trimble.Ssi.Driver.CarpoBased.Driver.SP80.NET.pdb",
+        "lib/net8.0/Trimble.Ssi.Driver.MockGnss.NET.dll",
+        "lib/net8.0/Trimble.Ssi.Driver.MockGnss.NET.pdb",
+        "lib/net8.0/Trimble.Ssi.DriverCommon.Interfaces.Gnss.NET.dll",
+        "lib/net8.0/Trimble.Ssi.DriverCommon.Interfaces.Gnss.NET.pdb",
+        "lib/net8.0/Trimble.Ssi.DriverProxy.Gnss.NET.dll",
+        "lib/net8.0/Trimble.Ssi.DriverProxy.Gnss.NET.pdb",
+        "lib/net8.0/Trimble.Ssi.Drivers.Gnss.NET.dll",
+        "lib/net8.0/Trimble.Ssi.Drivers.Gnss.NET.pdb",
+        "lib/net8.0/Trimble.Ssi.Interfaces.Gnss.dll",
+        "lib/net8.0/Trimble.Ssi.Interfaces.Gnss.pdb",
+        "runtimes/android-arm64-v8a/libASerialPort.so",
+        "runtimes/android-arm64-v8a/libDRV_SP80.so",
+        "runtimes/android-arm64-v8a/libDRV_TrimCom.so",
+        "runtimes/android-arm64-v8a/libTrimble.Ssi.CSWrapped.GNSS.so",
+        "runtimes/android-arm64-v8a/libTrimble.Ssi.Driver.CarpoBased.Driver.RSeries.so",
+        "runtimes/android-arm64-v8a/libTrimble.Ssi.Driver.CarpoBased.Driver.SP80.so",
+        "runtimes/android-arm64-v8a/libTrimble.Ssi.Driver.CarpoBased.GNSS.so",
+        "runtimes/android-arm64-v8a/libTrimble.Ssi.Driver.DriverCommon.GNSS.so",
+        "runtimes/android-arm64-v8a/libTrimble.Ssi.Driver.Mock.GNSS.so",
+        "runtimes/android-arm64-v8a/libTrimble.Ssi.Interfaces.GNSS.so",
+        "runtimes/android-armeabi-v7a/libASerialPort.so",
+        "runtimes/android-armeabi-v7a/libDRV_SP80.so",
+        "runtimes/android-armeabi-v7a/libDRV_TrimCom.so",
+        "runtimes/android-armeabi-v7a/libTrimble.Ssi.CSWrapped.GNSS.so",
+        "runtimes/android-armeabi-v7a/libTrimble.Ssi.Driver.CarpoBased.Driver.RSeries.so",
+        "runtimes/android-armeabi-v7a/libTrimble.Ssi.Driver.CarpoBased.Driver.SP80.so",
+        "runtimes/android-armeabi-v7a/libTrimble.Ssi.Driver.CarpoBased.GNSS.so",
+        "runtimes/android-armeabi-v7a/libTrimble.Ssi.Driver.DriverCommon.GNSS.so",
+        "runtimes/android-armeabi-v7a/libTrimble.Ssi.Driver.Mock.GNSS.so",
+        "runtimes/android-armeabi-v7a/libTrimble.Ssi.Interfaces.GNSS.so",
+        "runtimes/android-x86/libASerialPort.so",
+        "runtimes/android-x86/libDRV_SP80.so",
+        "runtimes/android-x86/libDRV_TrimCom.so",
+        "runtimes/android-x86/libTrimble.Ssi.CSWrapped.GNSS.so",
+        "runtimes/android-x86/libTrimble.Ssi.Driver.CarpoBased.Driver.RSeries.so",
+        "runtimes/android-x86/libTrimble.Ssi.Driver.CarpoBased.Driver.SP80.so",
+        "runtimes/android-x86/libTrimble.Ssi.Driver.CarpoBased.GNSS.so",
+        "runtimes/android-x86/libTrimble.Ssi.Driver.DriverCommon.GNSS.so",
+        "runtimes/android-x86/libTrimble.Ssi.Driver.Mock.GNSS.so",
+        "runtimes/android-x86/libTrimble.Ssi.Interfaces.GNSS.so",
+        "runtimes/android-x86_64/libASerialPort.so",
+        "runtimes/android-x86_64/libDRV_SP80.so",
+        "runtimes/android-x86_64/libDRV_TrimCom.so",
+        "runtimes/android-x86_64/libTrimble.Ssi.CSWrapped.GNSS.so",
+        "runtimes/android-x86_64/libTrimble.Ssi.Driver.CarpoBased.Driver.RSeries.so",
+        "runtimes/android-x86_64/libTrimble.Ssi.Driver.CarpoBased.Driver.SP80.so",
+        "runtimes/android-x86_64/libTrimble.Ssi.Driver.CarpoBased.GNSS.so",
+        "runtimes/android-x86_64/libTrimble.Ssi.Driver.DriverCommon.GNSS.so",
+        "runtimes/android-x86_64/libTrimble.Ssi.Driver.Mock.GNSS.so",
+        "runtimes/android-x86_64/libTrimble.Ssi.Interfaces.GNSS.so",
+        "runtimes/ios-arm64/libDRV_TrimCom.a",
+        "runtimes/ios-arm64/libPPACalculator.a",
+        "runtimes/ios-arm64/libT01Utils.a",
+        "runtimes/ios-arm64/libTrimble.Ssi.CSWrapped.GNSS.a",
+        "runtimes/ios-arm64/libTrimble.Ssi.Driver.CarpoBased.Driver.RSeries.a",
+        "runtimes/ios-arm64/libTrimble.Ssi.Driver.CarpoBased.GNSS.a",
+        "runtimes/ios-arm64/libTrimble.Ssi.Driver.DriverCommon.GNSS.a",
+        "runtimes/ios-arm64/libTrimble.Ssi.Driver.Mock.GNSS.a",
+        "runtimes/ios-arm64/libTrimble.Ssi.Interfaces.GNSS.a",
+        "runtimes/linux-arm64/libDRV_TrimCom.so.linux",
+        "runtimes/linux-arm64/libTrimble.Ssi.CSWrapped.GNSS.dll.so.linux",
+        "runtimes/linux-arm64/libTrimble.Ssi.Driver.CarpoBased.Driver.RSeries.so.linux",
+        "runtimes/linux-arm64/libTrimble.Ssi.Driver.CarpoBased.GNSS.so.linux",
+        "runtimes/linux-arm64/libTrimble.Ssi.Driver.DriverCommon.GNSS.so.linux",
+        "runtimes/linux-arm64/libTrimble.Ssi.Driver.Mock.GNSS.so.linux",
+        "runtimes/linux-arm64/libTrimble.Ssi.Interfaces.GNSS.so.linux",
+        "runtimes/linux-x64/libDRV_TrimCom.so.linux",
+        "runtimes/linux-x64/libTrimble.Ssi.CSWrapped.GNSS.dll.so.linux",
+        "runtimes/linux-x64/libTrimble.Ssi.Driver.CarpoBased.Driver.RSeries.so.linux",
+        "runtimes/linux-x64/libTrimble.Ssi.Driver.CarpoBased.GNSS.so.linux",
+        "runtimes/linux-x64/libTrimble.Ssi.Driver.DriverCommon.GNSS.so.linux",
+        "runtimes/linux-x64/libTrimble.Ssi.Driver.Mock.GNSS.so.linux",
+        "runtimes/linux-x64/libTrimble.Ssi.Interfaces.GNSS.so.linux",
+        "runtimes/windows10-x64/DRV_SP80.dll",
+        "runtimes/windows10-x64/DRV_TRIMCOM.dll",
+        "runtimes/windows10-x64/Trimble.Ssi.CSWrapped.GNSS.dll",
+        "runtimes/windows10-x64/Trimble.Ssi.Driver.CarpoBased.Driver.RSeries.dll",
+        "runtimes/windows10-x64/Trimble.Ssi.Driver.CarpoBased.Driver.SP80.dll",
+        "runtimes/windows10-x64/Trimble.Ssi.Driver.Mock.GNSS.dll",
+        "runtimes/windows10-x64/nmea0183.dll",
+        "runtimes/windows10-x86/DRV_SP80.dll",
+        "runtimes/windows10-x86/DRV_TRIMCOM.dll",
+        "runtimes/windows10-x86/Trimble.Ssi.CSWrapped.GNSS.dll",
+        "runtimes/windows10-x86/Trimble.Ssi.Driver.CarpoBased.Driver.RSeries.dll",
+        "runtimes/windows10-x86/Trimble.Ssi.Driver.CarpoBased.Driver.SP80.dll",
+        "runtimes/windows10-x86/Trimble.Ssi.Driver.Mock.GNSS.dll",
+        "runtimes/windows10-x86/nmea0183.dll",
+        "trimble.ssi.drivers.gnss.net.2025.1.28479.34.nupkg.sha512",
+        "trimble.ssi.drivers.gnss.net.nuspec"
+      ]
+    },
+    "Trimble.TDDTransformation.NET/2025.1.28479.34": {
+      "sha512": "GPBDVhl3v85hmSyZx2wB3jrVzf3rhG7V7vjBpT96+0Wdcb9sEL8LTgYVb8FKHPPi0F5dcaIn5/D0y5aaJmdP4w==",
+      "type": "package",
+      "path": "trimble.tddtransformation.net/2025.1.28479.34",
+      "files": [
+        ".nupkg.metadata",
+        "build/Trimble.TDDTransformation.NET.targets",
+        "buildTransitive/Trimble.TDDTransformation.NET.targets",
+        "lib/net8.0-android34.0/Trimble.TDDTransformation.NET.aar",
+        "lib/net8.0-android34.0/Trimble.TDDTransformation.NET.dll",
+        "lib/net8.0-android34.0/Trimble.TDDTransformation.NET.pdb",
+        "lib/net8.0-android34.0/Trimble.TDDTransformation.NET.xml",
+        "lib/net8.0-ios18.0/Trimble.TDDTransformation.NET.dll",
+        "lib/net8.0-ios18.0/Trimble.TDDTransformation.NET.pdb",
+        "lib/net8.0-windows10.0.19041/Trimble.TDDTransformation.NET.dll",
+        "lib/net8.0-windows10.0.19041/Trimble.TDDTransformation.NET.pdb",
+        "lib/net8.0/Trimble.TDDTransformation.NET.dll",
+        "lib/net8.0/Trimble.TDDTransformation.NET.pdb",
+        "runtimes/android-arm64-v8a/libCsdManagement.so",
+        "runtimes/android-arm64-v8a/libGeodeticX.so",
+        "runtimes/android-arm64-v8a/libTDDTransformationLibCS.so",
+        "runtimes/android-arm64-v8a/libc++_shared.so",
+        "runtimes/android-armeabi-v7a/libCsdManagement.so",
+        "runtimes/android-armeabi-v7a/libGeodeticX.so",
+        "runtimes/android-armeabi-v7a/libTDDTransformationLibCS.so",
+        "runtimes/android-armeabi-v7a/libc++_shared.so",
+        "runtimes/android-x86/libCsdManagement.so",
+        "runtimes/android-x86/libGeodeticX.so",
+        "runtimes/android-x86/libTDDTransformationLibCS.so",
+        "runtimes/android-x86/libc++_shared.so",
+        "runtimes/android-x86_64/libCsdManagement.so",
+        "runtimes/android-x86_64/libGeodeticX.so",
+        "runtimes/android-x86_64/libTDDTransformationLibCS.so",
+        "runtimes/android-x86_64/libc++_shared.so",
+        "runtimes/ios-arm64/libCsdManagement.a",
+        "runtimes/ios-arm64/libGeodeticX.a",
+        "runtimes/ios-arm64/libTDDTransformationLibCS.a",
+        "runtimes/ios-arm64/libcsiblib.a",
+        "runtimes/linux-arm64/libTDDTransformationLibCS.so.linux",
+        "runtimes/linux-x64/libTDDTransformationLibCS.so.linux",
+        "runtimes/windows10-x64/CsdManagement.dll",
+        "runtimes/windows10-x64/GeodeticX.dll",
+        "runtimes/windows10-x64/TDDTransformationLibCS.dll",
+        "runtimes/windows10-x86/CsdManagement.dll",
+        "runtimes/windows10-x86/GeodeticX.dll",
+        "runtimes/windows10-x86/TDDTransformationLibCS.dll",
+        "trimble.tddtransformation.net.2025.1.28479.34.nupkg.sha512",
+        "trimble.tddtransformation.net.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "Trimble.LicensingV2.NET >= 3.0.363.68",
+      "Trimble.Ssi.Drivers.Common.NET >= 2025.1.28479.34",
+      "Trimble.Ssi.Drivers.Gnss.NET >= 2025.1.28479.34",
+      "Trimble.TDDTransformation.NET >= 2025.1.28479.34"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\kunal.chakraborty\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages": {},
+    "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\CatalystFacade\\CatalystFacade\\CatalystFacade.NET.csproj",
+      "projectName": "CatalystFacade.NET",
+      "projectPath": "D:\\CatalystFacade\\CatalystFacade\\CatalystFacade.NET.csproj",
+      "packagesPath": "C:\\Users\\kunal.chakraborty\\.nuget\\packages\\",
+      "outputPath": "D:\\CatalystFacade\\CatalystFacade\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
+        "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages",
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\kunal.chakraborty\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.2.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.1.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
+        "C:\\Program Files (x86)\\DevExpress 19.2\\Components\\System\\Components\\Packages": {},
+        "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\DevExpress 23.1\\Components\\System\\Components\\Packages": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "D:\\CatalystFacade\\SSINuget": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "dependencies": {
+          "Trimble.LicensingV2.NET": {
+            "target": "Package",
+            "version": "[3.0.363.68, )"
+          },
+          "Trimble.Ssi.Drivers.Common.NET": {
+            "target": "Package",
+            "version": "[2025.1.28479.34, )"
+          },
+          "Trimble.Ssi.Drivers.Gnss.NET": {
+            "target": "Package",
+            "version": "[2025.1.28479.34, )"
+          },
+          "Trimble.TDDTransformation.NET": {
+            "target": "Package",
+            "version": "[2025.1.28479.34, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

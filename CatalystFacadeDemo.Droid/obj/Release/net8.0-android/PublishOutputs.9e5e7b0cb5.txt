@@ -1,0 +1,4 @@
+D:\CatalystFacade\CatalystFacadeDemo.Droid\bin\Release\net8.0-android\publish\catalystfacade.droid.catalystfacadedemo-Signed.aab
+D:\CatalystFacade\CatalystFacadeDemo.Droid\bin\Release\net8.0-android\publish\catalystfacade.droid.catalystfacadedemo.aab
+D:\CatalystFacade\CatalystFacadeDemo.Droid\bin\Release\net8.0-android\publish\catalystfacade.droid.catalystfacadedemo-Signed.apk
+D:\CatalystFacade\CatalystFacadeDemo.Droid\bin\Release\net8.0-android\publish\_Microsoft.Android.Resource.Designer.dll

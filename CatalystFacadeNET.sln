@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatalystFacade.NET.Droid", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatalystFacadeDemo.NET.Droid", "CatalystFacadeDemo.Droid\CatalystFacadeDemo.NET.Droid.csproj", "{C4960CCF-FB0F-4C38-8A54-7DF94C2D5846}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AltGeoRelayService.NET.Droid", "AltGeoRelayService.Droid\AltGeoRelayService.NET.Droid.csproj", "{388306DA-BB72-46BE-9DB4-18ADA69EABF8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,12 @@ Global
 		{C4960CCF-FB0F-4C38-8A54-7DF94C2D5846}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4960CCF-FB0F-4C38-8A54-7DF94C2D5846}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C4960CCF-FB0F-4C38-8A54-7DF94C2D5846}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{388306DA-BB72-46BE-9DB4-18ADA69EABF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{388306DA-BB72-46BE-9DB4-18ADA69EABF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{388306DA-BB72-46BE-9DB4-18ADA69EABF8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{388306DA-BB72-46BE-9DB4-18ADA69EABF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{388306DA-BB72-46BE-9DB4-18ADA69EABF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{388306DA-BB72-46BE-9DB4-18ADA69EABF8}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{7AB8DC24-1636-47D5-9853-99A809800070}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7AB8DC24-1636-47D5-9853-99A809800070}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AB8DC24-1636-47D5-9853-99A809800070}.Release|Any CPU.ActiveCfg = Release|Any CPU

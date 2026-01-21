@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)trimble.tddtransformation.net\2025.1.28479.34\buildTransitive\Trimble.TDDTransformation.NET.targets" Condition="Exists('$(NuGetPackageRoot)trimble.tddtransformation.net\2025.1.28479.34\buildTransitive\Trimble.TDDTransformation.NET.targets')" />
+    <Import Project="$(NuGetPackageRoot)trimble.licensingv2.net\3.0.363.68\buildTransitive\Trimble.LicensingV2.NET.targets" Condition="Exists('$(NuGetPackageRoot)trimble.licensingv2.net\3.0.363.68\buildTransitive\Trimble.LicensingV2.NET.targets')" />
+    <Import Project="$(NuGetPackageRoot)trimble.ssi.drivers.common.net\2025.1.28479.34\buildTransitive\Trimble.Ssi.Drivers.Common.NET.targets" Condition="Exists('$(NuGetPackageRoot)trimble.ssi.drivers.common.net\2025.1.28479.34\buildTransitive\Trimble.Ssi.Drivers.Common.NET.targets')" />
+    <Import Project="$(NuGetPackageRoot)trimble.ssi.drivers.gnss.net\2025.1.28479.34\buildTransitive\Trimble.Ssi.Drivers.Gnss.NET.targets" Condition="Exists('$(NuGetPackageRoot)trimble.ssi.drivers.gnss.net\2025.1.28479.34\buildTransitive\Trimble.Ssi.Drivers.Gnss.NET.targets')" />
+  </ImportGroup>
+</Project>

@@ -1,0 +1,1 @@
+int string com_trimble_empower_modulemanager_app_name 0x7f150001

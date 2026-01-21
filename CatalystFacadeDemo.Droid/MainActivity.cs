@@ -15,9 +15,9 @@ using System.Globalization;
 using Trimble.Ssi.Components.Core.Formats;
 using Xamarin.Essentials;
 
-namespace CatalystFacadeDemo.Droid
+namespace AltGeoRelayService.Droid
 {
-    [Activity(Label = "CatalystFacadeDemo", MainLauncher = true, Icon = "@drawable/trimble")]
+    [Activity(Label = "AltGeo relay service", MainLauncher = true, Icon = "@drawable/map_marker")]
     public class MainActivity : CatalystFacadeActivity
     {
         private UnitsAngle _angleUnits = new UnitsAngle(AngleTypes.Deg, 8);

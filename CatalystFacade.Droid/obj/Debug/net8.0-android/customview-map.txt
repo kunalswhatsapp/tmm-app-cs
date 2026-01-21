@@ -1,0 +1,6 @@
+resources;D:\CatalystFacade\CatalystFacade.Droid\obj\Debug\net8.0-android\lp\0\jl\res\values\values.xml
+resources;D:\CatalystFacade\CatalystFacade.Droid\obj\Debug\net8.0-android\lp\2\jl\res\values\values.xml
+resources;obj\Debug\net8.0-android\res\values\strings.xml
+string;D:\CatalystFacade\CatalystFacade.Droid\obj\Debug\net8.0-android\lp\0\jl\res\values\values.xml
+string;D:\CatalystFacade\CatalystFacade.Droid\obj\Debug\net8.0-android\lp\2\jl\res\values\values.xml
+string;obj\Debug\net8.0-android\res\values\strings.xml

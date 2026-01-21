@@ -1,0 +1,13 @@
+D:\CatalystFacade\CatalystFacade\bin\Debug\net8.0\CatalystFacade.NET.deps.json
+D:\CatalystFacade\CatalystFacade\bin\Debug\net8.0\CatalystFacade.NET.dll
+D:\CatalystFacade\CatalystFacade\bin\Debug\net8.0\CatalystFacade.NET.pdb
+D:\CatalystFacade\CatalystFacade\obj\Debug\net8.0\CatalystFacade.NET.csproj.AssemblyReference.cache
+D:\CatalystFacade\CatalystFacade\obj\Debug\net8.0\CatalystFacade.NET.GeneratedMSBuildEditorConfig.editorconfig
+D:\CatalystFacade\CatalystFacade\obj\Debug\net8.0\CatalystFacade.NET.AssemblyInfoInputs.cache
+D:\CatalystFacade\CatalystFacade\obj\Debug\net8.0\CatalystFacade.NET.AssemblyInfo.cs
+D:\CatalystFacade\CatalystFacade\obj\Debug\net8.0\CatalystFacade.NET.csproj.CoreCompileInputs.cache
+D:\CatalystFacade\CatalystFacade\obj\Debug\net8.0\CatalystFacade.NET.sourcelink.json
+D:\CatalystFacade\CatalystFacade\obj\Debug\net8.0\CatalystFacade.NET.dll
+D:\CatalystFacade\CatalystFacade\obj\Debug\net8.0\refint\CatalystFacade.NET.dll
+D:\CatalystFacade\CatalystFacade\obj\Debug\net8.0\CatalystFacade.NET.pdb
+D:\CatalystFacade\CatalystFacade\obj\Debug\net8.0\ref\CatalystFacade.NET.dll

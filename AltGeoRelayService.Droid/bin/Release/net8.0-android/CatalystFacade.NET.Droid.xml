@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CatalystFacade.NET.Droid</name>
+    </assembly>
+    <members>
+        <member name="M:CatalystFacade.Droid.CatalystFacade.#ctor(System.String,Android.Content.Context)">
+            <summary>
+            Catalyst facade constructor
+            </summary>
+            <param name="appGuid">Your application guid as received by Trimble. Part of the contract workflow.</param>
+            <param name="context">Your application context.</param>
+        </member>
+        <member name="P:CatalystFacade.Droid.CatalystFacade.DriverLogPath">
+            <summary>
+            Returns Log file path for drivers
+            </summary>
+        </member>
+        <member name="M:CatalystFacade.Droid.CatalystFacade.Version">
+            <summary>
+            Version of the SDK
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CatalystFacade.Droid.CatalystFacade.HostSerial">
+            <summary>
+            Device identifier
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CatalystFacade.Droid.CatalystFacade.LoadSubscription">
+            <summary>
+            Load the subscription without Trimble Mobile Manager
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CatalystFacade.Droid.CatalystFacade.LoadSubscriptionFromTrimbleMobileManager(System.String)">
+            <summary>
+            Load the subscription exposed from Trimble Mobile Manager
+            </summary>
+            <param name="userTrimbleId">The user ID GUID as received via the intent service from TMM. Please check the corresponding chapter on this for details. </param>
+            <returns></returns>
+        </member>
+        <member name="M:CatalystFacade.Droid.CatalystFacade.LoadDeviceSubscription(System.String,System.String@,System.DateTime@,System.DateTime@)">
+            <summary>
+            Load and push a device subscription to the device and get license information
+            </summary>
+            <param name="deviceLicense">The device license content as string</param>
+            <param name="subscriptionName">The subscription name</param>
+            <param name="issueDate">The license issue date</param>
+            <param name="expiryDate">The Catalyst license expiry date</param>
+            <returns></returns>
+        </member>
+        <member name="M:CatalystFacade.Droid.CatalystFacade.GetDriver(CatalystFacade.DriverType)">
+            <summary>
+            Gets the driver.
+            </summary>
+            <param name="driverType"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">deviceType - null</exception>
+        </member>
+        <member name="M:CatalystFacade.Droid.CatalystFacade.Connect">
+            <summary>
+            Connect to the sensor. To monitor the process subscribe to the <see cref="!:SensorStateChanged"/> before calling Connect().  
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CatalystFacade.Droid.CatalystFacade.ConnectViaBluetooth(System.String)">
+            <summary>
+            Connect to the sensor via Bluetooth
+            </summary>
+            <param name="address">The bluetooth address in URI format, something like AA:BB:CC:12:23</param>
+            <returns></returns>
+        </member>
+        <member name="M:CatalystFacade.Droid.CatalystFacade.ConnectViaWifi(System.String,System.String)">
+            <summary>
+            Connect to sensor via Wifi
+            </summary>
+            <param name="tcpIpAddress">The ip of the receiver, something like 192.168.142.1/</param>
+            <param name="tcpIpPort">The port, typically port 80</param>
+            <returns></returns>
+        </member>
+        <member name="T:CatalystFacade.Droid.CatalystFacadeActivity">
+            <summary>
+            Manages user token refreshing using TMM Intent - "com.trimble.tmm.RefreshUserToken"
+            </summary>
+            <seealso cref="T:Android.App.Activity" />
+        </member>
+    </members>
+</doc>
