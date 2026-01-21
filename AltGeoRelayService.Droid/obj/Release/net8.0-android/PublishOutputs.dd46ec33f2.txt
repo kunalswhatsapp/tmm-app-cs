@@ -1,1 +1,4 @@
+D:\CatalystFacade\AltGeoRelayService.Droid\bin\Release\net8.0-android\publish\altgeo.relayservice-Signed.aab
+D:\CatalystFacade\AltGeoRelayService.Droid\bin\Release\net8.0-android\publish\altgeo.relayservice.aab
+D:\CatalystFacade\AltGeoRelayService.Droid\bin\Release\net8.0-android\publish\altgeo.relayservice-Signed.apk
 D:\CatalystFacade\AltGeoRelayService.Droid\bin\Release\net8.0-android\publish\_Microsoft.Android.Resource.Designer.dll

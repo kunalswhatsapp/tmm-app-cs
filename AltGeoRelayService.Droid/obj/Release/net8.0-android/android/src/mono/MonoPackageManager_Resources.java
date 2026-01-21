@@ -1,0 +1,45 @@
+package mono;
+public class MonoPackageManager_Resources {
+	public static String[] Assemblies = new String[]{
+		/* We need to ensure that "AltGeoRelayService.Droid.dll" comes first in this list. */
+		"AltGeoRelayService.Droid.dll",
+		"_Microsoft.Android.Resource.Designer.dll",
+		"EM940Lib-Mono-Android.dll",
+		"Google.Protobuf.dll",
+		"Google.Protobuf.dll",
+		"Google.Protobuf.dll",
+		"Google.Protobuf.dll",
+		"Newtonsoft.Json.dll",
+		"AIDLService.dll",
+		"Trimble.Licensing.Interfaces.dll",
+		"Trimble.LicensingV2.NET.dll",
+		"Trimble.Ssi.Components.Core.dll",
+		"Trimble.Ssi.Core.dll",
+		"Trimble.Ssi.DriverCommon.Core.NET.dll",
+		"Trimble.Ssi.DriverCommon.Interfaces.NET.dll",
+		"Trimble.Ssi.DriverManagement.NET.dll",
+		"Trimble.Ssi.DriverProxy.Common.NET.dll",
+		"Trimble.Ssi.Drivers.Common.NET.dll",
+		"Trimble.Ssi.Interfaces.dll",
+		"Trimble.EMPOWER.Common.Droid.dll",
+		"Trimble.EMPOWER.JavaBinding.Droid.dll",
+		"Trimble.EMPOWER.Manager.Droid.dll",
+		"Trimble.Ssi.Driver.AndroidService.Driver.Catalyst.NET.Android.dll",
+		"Trimble.Ssi.Driver.AndroidService.Driver.Catalyst.NET.JavaBindings.dll",
+		"Trimble.Ssi.Driver.CarpoBased.Driver.RSeries.NET.dll",
+		"Trimble.Ssi.Driver.CarpoBased.Driver.SP80.NET.dll",
+		"Trimble.Ssi.Driver.MockGnss.NET.dll",
+		"Trimble.Ssi.DriverCommon.Interfaces.Gnss.NET.dll",
+		"Trimble.Ssi.DriverProxy.Gnss.NET.dll",
+		"Trimble.Ssi.Drivers.Gnss.NET.dll",
+		"Trimble.Ssi.Interfaces.Gnss.dll",
+		"Trimble.TDDTransformation.NET.dll",
+		"Xamarin.AndroidX.Browser.dll",
+		"Xamarin.AndroidX.Core.dll",
+		"Xamarin.Essentials.dll",
+		"CatalystFacade.NET.dll",
+		"CatalystFacade.NET.Droid.dll",
+	};
+	public static String[] Dependencies = new String[]{
+	};
+}
