@@ -562,6 +562,8 @@ namespace AltGeoRelayService.Droid
 
         protected override void OnResume()
         {
+            base.OnResume();
+            DeviceLogRelayService.ApiDataUpdated += OnApiDataUpdated; // ✅ REQUIRED
             MainModel.Instance.ProgressMsgChanged += InstanceOnProgressMsgChanged;
             if (MainModel.Instance.ProgressMsg != null)
             {
@@ -637,7 +639,8 @@ namespace AltGeoRelayService.Droid
             // Start periodic log refresh
             StartLogRefresh();
 
-            base.OnResume();
+           
+             
         }
 
 
@@ -843,7 +846,11 @@ namespace AltGeoRelayService.Droid
         
         private void StartLogRefresh()
         {
-            if (_logRefreshHandler == null) return;
+            // Ensure handler is initialized
+            if (_logRefreshHandler == null)
+            {
+                _logRefreshHandler = new Handler(Looper.MainLooper);
+            }
             
             // Stop any existing refresh
             StopLogRefresh();
@@ -851,10 +858,10 @@ namespace AltGeoRelayService.Droid
             // Create a runnable that refreshes logs and schedules itself again
             _logRefreshRunnable = new Java.Lang.Runnable(() =>
             {
-                if (DeviceLogRelayService.IsRunning)
-                {
+               // if (DeviceLogRelayService.IsRunning)
+                //{
                     UpdateApiDataDisplay();
-                }
+               // }
                 // Schedule next refresh
                 if (_logRefreshHandler != null && _logRefreshRunnable != null)
                 {
@@ -862,8 +869,11 @@ namespace AltGeoRelayService.Droid
                 }
             });
             
-            // Start the refresh cycle
-            _logRefreshHandler.PostDelayed(_logRefreshRunnable, LogRefreshIntervalMs);
+            // Start the refresh cycle - add null check for safety
+            if (_logRefreshHandler != null && _logRefreshRunnable != null)
+            {
+                _logRefreshHandler.PostDelayed(_logRefreshRunnable, LogRefreshIntervalMs);
+            }
         }
         
         private void StopLogRefresh()

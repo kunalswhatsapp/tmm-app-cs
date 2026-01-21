@@ -90,21 +90,70 @@ namespace AltGeoRelayService.Droid
             // Notify UI - ensure we're on the main thread context
             try
             {
-                if (ApiDataUpdated != null)
+               MainThread.BeginInvokeOnMainThread(() =>
                 {
-                    ApiDataUpdated.Invoke(null, new ApiDataEventArgs
+                    if (ApiDataUpdated != null)
                     {
-                        Payload = currentPayload,
-                        Response = currentResponse,
-                        Status = currentStatus,
-                        Logs = currentLogs
-                    });
-                }
+                        ApiDataUpdated.Invoke(null, new ApiDataEventArgs
+                        {
+                            Payload = currentPayload,
+                            Response = currentResponse,
+                            Status = currentStatus,
+                            Logs = currentLogs
+                        });
+                    }
+                });
             }
             catch (Exception ex)
             {
-                // Log the error but don't throw
-                FacadeLogger.Instance.LogMessage($"RelayService: UI update error: {ex.Message}");
+                // Log the error to the visible panel - use direct log addition to avoid recursion
+                try
+                {
+                    var errorTimestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    var errorLogEntry = $"[{errorTimestamp}] ERROR in AddLog UI update: {ex.Message}\n";
+                    errorLogEntry += $"[{errorTimestamp}] Exception type: {ex.GetType().FullName}\n";
+                    if (ex.InnerException != null)
+                    {
+                        errorLogEntry += $"[{errorTimestamp}] Inner exception: {ex.InnerException.Message}\n";
+                    }
+                    errorLogEntry += $"[{errorTimestamp}] Stack trace: {ex.StackTrace}\n";
+                    
+                    string updatedLogs;
+                    lock (_logLock)
+                    {
+                        _lastLogs += errorLogEntry;
+                        // Keep only last 200 log entries
+                        var lines = _lastLogs.Split('\n');
+                        if (lines.Length > 200)
+                        {
+                            _lastLogs = string.Join("\n", lines.Skip(lines.Length - 200));
+                        }
+                        updatedLogs = _lastLogs;
+                    }
+                    
+                    // Try to notify UI one more time with the error included
+                    try
+                    {
+                        ApiDataUpdated?.Invoke(null, new ApiDataEventArgs
+                        {
+                            Payload = currentPayload,
+                            Response = currentResponse,
+                            Status = currentStatus,
+                            Logs = updatedLogs
+                        });
+                    }
+                    catch
+                    {
+                        // If UI notification fails again, just continue
+                    }
+                    
+                    FacadeLogger.Instance.LogMessage($"RelayService: UI update error: {ex.Message}");
+                }
+                catch
+                {
+                    // If even error logging fails, just log to FacadeLogger
+                    FacadeLogger.Instance.LogMessage($"RelayService: Critical error in AddLog: {ex.Message}");
+                }
             }
         }
 
@@ -112,6 +161,10 @@ namespace AltGeoRelayService.Droid
         {
             try
             {
+                lock (_logLock)
+                    {
+                        _lastLogs = "";
+                    }
                 AddLog("=== Starting Relay Service ===");
                 
                 if (string.IsNullOrWhiteSpace(tenantId))
@@ -620,8 +673,14 @@ namespace AltGeoRelayService.Droid
             {
                 return Settings.Secure.GetString(context.ContentResolver, Settings.Secure.AndroidId);
             }
-            catch
+            catch (Exception ex)
             {
+                AddLog($"ERROR getting Android ID: {ex.Message}");
+                AddLog($"Exception type: {ex.GetType().Name}");
+                if (ex.InnerException != null)
+                {
+                    AddLog($"Inner exception: {ex.InnerException.Message}");
+                }
                 return null;
             }
         }
@@ -632,7 +691,11 @@ namespace AltGeoRelayService.Droid
             {
                 using var ifilter = new IntentFilter(Intent.ActionBatteryChanged);
                 using var batteryStatus = context.RegisterReceiver(null, ifilter);
-                if (batteryStatus == null) return null;
+                if (batteryStatus == null)
+                {
+                    AddLog("WARNING: Battery status receiver returned null");
+                    return null;
+                }
 
                 var health = batteryStatus.GetIntExtra(BatteryManager.ExtraHealth, (int)BatteryHealth.Unknown);
                 return health switch
@@ -646,8 +709,14 @@ namespace AltGeoRelayService.Droid
                     _ => "UNKNOWN"
                 };
             }
-            catch
+            catch (Exception ex)
             {
+                AddLog($"ERROR getting battery health: {ex.Message}");
+                AddLog($"Exception type: {ex.GetType().Name}");
+                if (ex.InnerException != null)
+                {
+                    AddLog($"Inner exception: {ex.InnerException.Message}");
+                }
                 return null;
             }
         }

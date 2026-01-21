@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CatalystFacade.NET")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+446ee6c1ed1e48e245f2945d04dfe7d1cae3d68d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+da7d132216171a36b76cd01dee26597cfdbdafeb")]
 [assembly: System.Reflection.AssemblyProductAttribute("CatalystFacade.NET")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CatalystFacade.NET")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
