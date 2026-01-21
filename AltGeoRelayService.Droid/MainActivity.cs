@@ -17,7 +17,7 @@ using Xamarin.Essentials;
 
 namespace AltGeoRelayService.Droid
 {
-    [Activity(Label = "AltGeo relay service", MainLauncher = true, Icon = "@drawable/map_marker")]
+    [Activity(Label = "@string/ApplicationName", MainLauncher = true, Icon = "@drawable/map_marker")]
     public class MainActivity : CatalystFacadeActivity
     {
         private UnitsAngle _angleUnits = new UnitsAngle(AngleTypes.Deg, 8);

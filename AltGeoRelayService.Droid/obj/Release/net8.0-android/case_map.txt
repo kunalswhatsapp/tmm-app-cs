@@ -13,6 +13,7 @@ layout\main;layout\Main
 layout\toolbar;layout\Toolbar
 menu\topconfigmenu;menu\TopConfigMenu
 menu\topmainmenu;menu\TopMainMenu
+values\colors;values\Colors
 values\strings;values\Strings
 values\styles;values\Styles
 xml\provider_paths;xml\provider_paths
