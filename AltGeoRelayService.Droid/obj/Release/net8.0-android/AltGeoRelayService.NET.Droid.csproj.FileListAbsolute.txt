@@ -22,12 +22,8 @@ D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\case_map.t
 D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\__Microsoft.Android.Resource.Designer.cs
 D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\res.flag
 D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\lp\0\jl\files.cache
-D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\lp\3\jl\files.cache
-D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\lp\29\jl\files.cache
-D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\lp\32\jl\files.cache
 D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\lp\33\jl\files.cache
 D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\lp\34\jl\files.cache
-D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\lp\40\jl\files.cache
 D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\R.txt
 D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\_Microsoft.Android.Resource.Designer.dll
 D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\R.cs.flag
@@ -189,3 +185,7 @@ D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\stamp\_Gen
 D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\stamp\_GeneratePackageManagerJava.stamp
 D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\stamp\_ResolveLibraryProjectImports.stamp
 D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\res\values\colors.xml
+D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\lp\4\jl\files.cache
+D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\lp\30\jl\files.cache
+D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\lp\35\jl\files.cache
+D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\lp\37\jl\files.cache

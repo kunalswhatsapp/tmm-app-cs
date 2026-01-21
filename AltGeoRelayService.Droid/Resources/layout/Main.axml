@@ -781,32 +781,30 @@
         </TableRow>
       </TableLayout>
     </ScrollView>
-    <LinearLayout
-        android:orientation="vertical"
+   
+  </LinearLayout>
+   <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FE6600"
-        android:padding="8dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="10dp">
+        android:background="#E0E0E0"
+        android:padding="5dp"
+        android:layout_marginTop="10dp">
         <TextView
-            android:text="📡 API Request/Response &amp; Logs"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Last API Request/Response"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
+            android:padding="5dp"
             android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:background="#FE6600"
-            android:gravity="center" />
+            android:background="#C0C0C0" />
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="400dp"
             android:background="#FFFFFF"
-            android:padding="5dp"
-            android:scrollbars="vertical">
+            android:padding="5dp">
             <LinearLayout
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
@@ -815,83 +813,71 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:padding="5dp"
-                    android:background="#E8E8E8" />
+                    android:padding="3dp" />
                 <TextView
                     android:id="@+id/txtLastApiPayload"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="8dp"
+                    android:padding="5dp"
                     android:text="No data sent yet"
                     android:textSize="10sp"
                     android:fontFamily="monospace"
-                    android:background="#F5F5F5"
-                    android:minHeight="40dp" />
+                    android:background="#F5F5F5" />
                 <TextView
                     android:text="Response:"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:padding="5dp"
-                    android:layout_marginTop="5dp"
-                    android:background="#E8E8E8" />
+                    android:padding="3dp"
+                    android:layout_marginTop="5dp" />
                 <TextView
                     android:id="@+id/txtLastApiResponse"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="8dp"
+                    android:padding="5dp"
                     android:text="No response yet"
                     android:textSize="10sp"
                     android:fontFamily="monospace"
-                    android:background="#F5F5F5"
-                    android:minHeight="40dp" />
+                    android:background="#F5F5F5" />
                 <TextView
                     android:text="Status:"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:padding="5dp"
-                    android:layout_marginTop="5dp"
-                    android:background="#E8E8E8" />
+                    android:padding="3dp"
+                    android:layout_marginTop="5dp" />
                 <TextView
                     android:id="@+id/txtLastApiStatus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="8dp"
+                    android:padding="5dp"
                     android:text="No status"
                     android:textSize="10sp"
                     android:fontFamily="monospace"
-                    android:background="#F5F5F5"
-                    android:minHeight="30dp" />
+                    android:background="#F5F5F5" />
                 <TextView
                     android:text="Logs:"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:padding="5dp"
-                    android:layout_marginTop="5dp"
-                    android:background="#E8E8E8" />
-                <ScrollView
+                    android:padding="3dp"
+                    android:layout_marginTop="5dp" />
+                <TextView
+                    android:id="@+id/txtLastApiLogs"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="No logs yet"
+                    android:textSize="9sp"
+                    android:fontFamily="monospace"
                     android:background="#F5F5F5"
-                    android:scrollbars="vertical">
-                    <TextView
-                        android:id="@+id/txtLastApiLogs"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="8dp"
-                        android:text="Waiting for relay service to start...\n\nClick 'Start Relay' button to begin."
-                        android:textSize="9sp"
-                        android:fontFamily="monospace"
-                        android:background="#F5F5F5" />
-                </ScrollView>
+                    android:maxLines="100"
+                    android:scrollbars="vertical" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
-  </LinearLayout>
 </LinearLayout>
 </ScrollView>

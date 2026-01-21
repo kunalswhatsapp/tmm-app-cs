@@ -59,6 +59,11 @@ namespace AltGeoRelayService.Droid
         {
             var timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             var logEntry = $"[{timestamp}] {message}\n";
+            string currentLogs;
+            string currentPayload;
+            string currentResponse;
+            string currentStatus;
+            
             lock (_logLock)
             {
                 _lastLogs += logEntry;
@@ -68,25 +73,38 @@ namespace AltGeoRelayService.Droid
                 {
                     _lastLogs = string.Join("\n", lines.Skip(lines.Length - 200));
                 }
+                currentLogs = _lastLogs;
+            }
+            
+            // Get current payload/response/status
+            lock (_lock)
+            {
+                currentPayload = _lastPayload ?? "No data sent yet";
+                currentResponse = _lastResponse ?? "No response yet";
+                currentStatus = _lastStatus ?? "No status";
             }
             
             // Also log to FacadeLogger
             FacadeLogger.Instance.LogMessage($"RelayService: {message}");
             
-            // Notify UI
+            // Notify UI - ensure we're on the main thread context
             try
             {
-                ApiDataUpdated?.Invoke(null, new ApiDataEventArgs
+                if (ApiDataUpdated != null)
                 {
-                    Payload = _lastPayload,
-                    Response = _lastResponse,
-                    Status = _lastStatus,
-                    Logs = _lastLogs
-                });
+                    ApiDataUpdated.Invoke(null, new ApiDataEventArgs
+                    {
+                        Payload = currentPayload,
+                        Response = currentResponse,
+                        Status = currentStatus,
+                        Logs = currentLogs
+                    });
+                }
             }
-            catch
+            catch (Exception ex)
             {
-                // Ignore UI update errors
+                // Log the error but don't throw
+                FacadeLogger.Instance.LogMessage($"RelayService: UI update error: {ex.Message}");
             }
         }
 

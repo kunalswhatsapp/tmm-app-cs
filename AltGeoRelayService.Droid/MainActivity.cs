@@ -29,7 +29,9 @@ namespace AltGeoRelayService.Droid
         private TextView _txtLastApiResponse;
         private TextView _txtLastApiStatus;
         private TextView _txtLastApiLogs;
-        private System.Threading.Timer _logRefreshTimer;
+        private Handler _logRefreshHandler;
+        private Java.Lang.Runnable _logRefreshRunnable;
+        private const int LogRefreshIntervalMs = 2000; // Refresh every 2 seconds
 
         private static readonly int LocalSettingsRequest = GetUniqueRequestCode();
         private static readonly int RequestLogin = GetUniqueRequestCode();
@@ -293,23 +295,14 @@ namespace AltGeoRelayService.Droid
             // Subscribe to API data updates
             DeviceLogRelayService.ApiDataUpdated += OnApiDataUpdated;
 
-            // Initialize logs with welcome message
-            if (_txtLastApiLogs != null)
-            {
-                _txtLastApiLogs.Text = "Waiting for relay service to start...\n\nClick 'Start Relay' button to begin.";
-            }
-
-            // Start periodic log refresh timer (every 500ms to catch all updates)
-            _logRefreshTimer = new System.Threading.Timer((state) =>
-            {
-                RunOnUiThread(() =>
-                {
-                    UpdateApiDataDisplay();
-                });
-            }, null, TimeSpan.FromMilliseconds(500), TimeSpan.FromMilliseconds(500));
+            // Initialize log refresh handler
+            _logRefreshHandler = new Handler(Looper.MainLooper);
 
             // Load initial API data if available
             UpdateApiDataDisplay();
+            
+            // Start periodic refresh
+            StartLogRefresh();
         }
 
         private void UpdateApiDataDisplay(string payload = null, string response = null, string status = null, string logs = null)
@@ -317,10 +310,10 @@ namespace AltGeoRelayService.Droid
             if (payload == null || response == null || status == null || logs == null)
             {
                 var (lastPayload, lastResponse, lastStatus, lastLogs) = DeviceLogRelayService.GetLastApiData();
-                payload = lastPayload ?? "No data sent yet";
-                response = lastResponse ?? "No response yet";
-                status = lastStatus ?? "No status";
-                logs = lastLogs ?? "Waiting for relay service to start...\n\nClick 'Start Relay' button to begin.";
+                payload = lastPayload;
+                response = lastResponse;
+                status = lastStatus;
+                logs = lastLogs;
             }
 
             if (_txtLastApiPayload != null)
@@ -337,28 +330,7 @@ namespace AltGeoRelayService.Droid
             }
             if (_txtLastApiLogs != null)
             {
-                var currentText = _txtLastApiLogs.Text ?? "";
-                var newText = logs ?? "Waiting for relay service to start...\n\nClick 'Start Relay' button to begin.";
-                
-                // Only update if text changed to avoid unnecessary scrolling
-                if (currentText != newText)
-                {
-                    _txtLastApiLogs.Text = newText;
-                    
-                    // Scroll to bottom to show latest logs - find parent ScrollView
-                    var parent = _txtLastApiLogs.Parent;
-                    while (parent != null && !(parent is Android.Widget.ScrollView))
-                    {
-                        parent = parent.Parent;
-                    }
-                    if (parent is Android.Widget.ScrollView scrollView)
-                    {
-                        scrollView.Post(() =>
-                        {
-                            scrollView.FullScroll(FocusSearchDirection.Down);
-                        });
-                    }
-                }
+                _txtLastApiLogs.Text = logs;
             }
         }
 
@@ -661,18 +633,9 @@ namespace AltGeoRelayService.Droid
 
             // Update API data display
             UpdateApiDataDisplay();
-
-            // Restart log refresh timer when resumed
-            if (_logRefreshTimer == null)
-            {
-                _logRefreshTimer = new System.Threading.Timer((state) =>
-                {
-                    RunOnUiThread(() =>
-                    {
-                        UpdateApiDataDisplay();
-                    });
-                }, null, TimeSpan.FromMilliseconds(500), TimeSpan.FromMilliseconds(500));
-            }
+            
+            // Start periodic log refresh
+            StartLogRefresh();
 
             base.OnResume();
         }
@@ -706,13 +669,10 @@ namespace AltGeoRelayService.Droid
         {
             MainModel.Instance.ProgressMsgChanged -= InstanceOnProgressMsgChanged;
             DeviceLogRelayService.ApiDataUpdated -= OnApiDataUpdated;
-            // Stop log refresh timer when paused
-            _logRefreshTimer?.Dispose();
-            _logRefreshTimer = null;
+            StopLogRefresh();
             HideProgress();
             base.OnPause();
         }
-
 
         private void OnApiDataUpdated(object sender, DeviceLogRelayService.ApiDataEventArgs args)
         {
@@ -786,7 +746,6 @@ namespace AltGeoRelayService.Droid
                 {
                     Toast.MakeText(this, "Relay stopped.", ToastLength.Short).Show();
                     UpdateRelayButtonText();
-                    UpdateApiDataDisplay(); // Refresh to show stop logs
                 });
                 return;
             }
@@ -796,40 +755,22 @@ namespace AltGeoRelayService.Droid
             {
                 try
                 {
-                    // Update display immediately to show starting message
+                    // Clear previous logs and update display immediately
                     RunOnUiThread(() =>
                     {
-                        if (_txtLastApiLogs != null)
-                        {
-                            _txtLastApiLogs.Text = "Starting relay service...\n";
-                        }
                         UpdateApiDataDisplay();
                     });
                     
                     DeviceLogRelayService.Start(this, existingTenant);
                     
-                    // Update display multiple times to catch all initial logs
-                    Task.Delay(50).ContinueWith(_ =>
+                    // Wait a moment for initial logs to be written, then update display
+                    Task.Delay(100).ContinueWith(_ =>
                     {
                         RunOnUiThread(() =>
                         {
-                            UpdateApiDataDisplay();
-                        });
-                    });
-                    Task.Delay(200).ContinueWith(_ =>
-                    {
-                        RunOnUiThread(() =>
-                        {
-                            UpdateApiDataDisplay();
                             Toast.MakeText(this, "Relay started (push every 30 seconds).", ToastLength.Short).Show();
                             UpdateRelayButtonText();
-                        });
-                    });
-                    Task.Delay(500).ContinueWith(_ =>
-                    {
-                        RunOnUiThread(() =>
-                        {
-                            UpdateApiDataDisplay(); // Final refresh to catch all startup logs
+                            UpdateApiDataDisplay(); // Refresh logs
                         });
                     });
                 }
@@ -863,39 +804,21 @@ namespace AltGeoRelayService.Droid
                     }
                     Preferences.Set("altgeo_tenantId", tenantId);
                     
-                    // Update display immediately to show starting message
-                    if (_txtLastApiLogs != null)
-                    {
-                        _txtLastApiLogs.Text = "Starting relay service...\n";
-                    }
+                    // Clear previous logs and update display immediately
                     UpdateApiDataDisplay();
                     
                     try
                     {
                         DeviceLogRelayService.Start(this, tenantId);
                         
-                        // Update display multiple times to catch all initial logs
-                        Task.Delay(50).ContinueWith(_ =>
+                        // Wait a moment for initial logs to be written, then update display
+                        Task.Delay(100).ContinueWith(_ =>
                         {
                             RunOnUiThread(() =>
                             {
-                                UpdateApiDataDisplay();
-                            });
-                        });
-                        Task.Delay(200).ContinueWith(_ =>
-                        {
-                            RunOnUiThread(() =>
-                            {
-                                UpdateApiDataDisplay();
                                 Toast.MakeText(this, "Relay started (push every 30 seconds).", ToastLength.Short).Show();
                                 UpdateRelayButtonText();
-                            });
-                        });
-                        Task.Delay(500).ContinueWith(_ =>
-                        {
-                            RunOnUiThread(() =>
-                            {
-                                UpdateApiDataDisplay(); // Final refresh to catch all startup logs
+                                UpdateApiDataDisplay(); // Refresh logs
                             });
                         });
                     }
@@ -916,6 +839,40 @@ namespace AltGeoRelayService.Droid
         {
             if (_btnRelayService == null) return;
             _btnRelayService.Text = DeviceLogRelayService.IsRunning ? "Stop Relay" : "Start Relay";
+        }
+        
+        private void StartLogRefresh()
+        {
+            if (_logRefreshHandler == null) return;
+            
+            // Stop any existing refresh
+            StopLogRefresh();
+            
+            // Create a runnable that refreshes logs and schedules itself again
+            _logRefreshRunnable = new Java.Lang.Runnable(() =>
+            {
+                if (DeviceLogRelayService.IsRunning)
+                {
+                    UpdateApiDataDisplay();
+                }
+                // Schedule next refresh
+                if (_logRefreshHandler != null && _logRefreshRunnable != null)
+                {
+                    _logRefreshHandler.PostDelayed(_logRefreshRunnable, LogRefreshIntervalMs);
+                }
+            });
+            
+            // Start the refresh cycle
+            _logRefreshHandler.PostDelayed(_logRefreshRunnable, LogRefreshIntervalMs);
+        }
+        
+        private void StopLogRefresh()
+        {
+            if (_logRefreshHandler != null && _logRefreshRunnable != null)
+            {
+                _logRefreshHandler.RemoveCallbacks(_logRefreshRunnable);
+            }
+            _logRefreshRunnable = null;
         }
     }
 }
