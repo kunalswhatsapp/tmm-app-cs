@@ -282,7 +282,7 @@
       <TableLayout
           android:layout_width="match_parent"
           android:layout_height="match_parent"
-          android:stretchColumns="1">
+          android:stretchColumns="2">
 
         <TableRow
             android:layout_width="match_parent"
@@ -415,48 +415,7 @@
       <TableLayout
           android:layout_width="match_parent"
           android:layout_height="match_parent"
-          android:stretchColumns="1">
-
-        <TableRow>
-          <TextView
-              android:padding="3dip"
-              android:text="Relay Debug"
-              android:textAppearance="?android:attr/textAppearanceMedium"
-              android:textStyle="bold"
-              android:layout_span="2"/>
-        </TableRow>
-
-        <TableRow>
-          <TextView
-              android:padding="3dip"
-              android:text="Last Request" />
-          <TextView
-              android:id="@+id/txtRelayRequest"
-              android:layout_width="0dp"
-              android:layout_weight="1"
-              android:gravity="left"
-              android:padding="3dip"
-              android:textIsSelectable="true"
-              android:typeface="monospace"
-              android:textSize="10sp"
-              android:text="" />
-        </TableRow>
-
-        <TableRow>
-          <TextView
-              android:padding="3dip"
-              android:text="Last Response" />
-          <TextView
-              android:id="@+id/txtRelayResponse"
-              android:layout_width="0dp"
-              android:layout_weight="1"
-              android:gravity="left"
-              android:padding="3dip"
-              android:textIsSelectable="true"
-              android:typeface="monospace"
-              android:textSize="10sp"
-              android:text="" />
-        </TableRow>
+          android:stretchColumns="2">
 
         <TableRow>
 

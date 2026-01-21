@@ -23,10 +23,6 @@ namespace AltGeoRelayService.Droid
 
         internal static bool IsRunning => _cts != null && !_cts.IsCancellationRequested;
 
-        internal static string LastRequestJson { get; private set; }
-        internal static string LastResponseText { get; private set; }
-        internal static event Action<string, string> DebugUpdated;
-
         internal static void Start(Context context, string tenantId)
         {
             if (string.IsNullOrWhiteSpace(tenantId))
@@ -85,7 +81,6 @@ namespace AltGeoRelayService.Droid
             catch (Exception ex)
             {
                 FacadeLogger.Instance.LogMessage($"Relay push failed: {ex.Message}");
-                PublishDebug(LastRequestJson, $"ERROR: {ex.Message}");
             }
         }
 
@@ -228,18 +223,15 @@ namespace AltGeoRelayService.Droid
             };
 
             var json = JsonConvert.SerializeObject(payload);
-            PublishDebug(json, "SENDING...");
             using var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             using var resp = await Http.PostAsync(Endpoint, content, ct).ConfigureAwait(false);
             var body = await resp.Content.ReadAsStringAsync(ct).ConfigureAwait(false);
             if (!resp.IsSuccessStatusCode)
             {
-                PublishDebug(json, $"HTTP {(int)resp.StatusCode} {resp.StatusCode}\n{body}");
                 throw new Exception($"HTTP {(int)resp.StatusCode}: {body}");
             }
 
-            PublishDebug(json, $"HTTP {(int)resp.StatusCode} {resp.StatusCode}\n{body}");
             FacadeLogger.Instance.LogMessage($"Relay push ok: {(int)resp.StatusCode}");
         }
 
@@ -281,19 +273,6 @@ namespace AltGeoRelayService.Droid
             {
                 return null;
             }
-        }
-
-        private static void PublishDebug(string requestJson, string responseText)
-        {
-            if (!string.IsNullOrWhiteSpace(requestJson))
-            {
-                LastRequestJson = requestJson;
-            }
-            if (responseText != null)
-            {
-                LastResponseText = responseText;
-            }
-            DebugUpdated?.Invoke(LastRequestJson ?? requestJson, LastResponseText ?? responseText);
         }
     }
 }

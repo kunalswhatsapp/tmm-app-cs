@@ -17,15 +17,13 @@ using Xamarin.Essentials;
 
 namespace AltGeoRelayService.Droid
 {
-    [Activity(Label = "@string/ApplicationName", MainLauncher = true, Icon = "@drawable/map_marker")]
+    [Activity(Label = "AltGeo relay service", MainLauncher = true, Icon = "@drawable/map_marker")]
     public class MainActivity : CatalystFacadeActivity
     {
         private UnitsAngle _angleUnits = new UnitsAngle(AngleTypes.Deg, 8);
         private Dialog _progressDialog;
         private bool _shownConnectedHint;
         private Button _btnRelayService;
-        private TextView _txtRelayRequest;
-        private TextView _txtRelayResponse;
 
         private static readonly int LocalSettingsRequest = GetUniqueRequestCode();
         private static readonly int RequestLogin = GetUniqueRequestCode();
@@ -52,12 +50,6 @@ namespace AltGeoRelayService.Droid
                 _btnRelayService.Click += (s, e) => ToggleRelayService();
                 UpdateRelayButtonText();
             }
-
-            _txtRelayRequest = FindViewById<TextView>(Resource.Id.txtRelayRequest);
-            _txtRelayResponse = FindViewById<TextView>(Resource.Id.txtRelayResponse);
-            DeviceLogRelayService.DebugUpdated += OnRelayDebugUpdated;
-            // Populate if relay already has data
-            OnRelayDebugUpdated(DeviceLogRelayService.LastRequestJson, DeviceLogRelayService.LastResponseText);
 
             List<string> criticalPermissions = new List<string> {
                 Manifest.Permission.Internet,
@@ -672,29 +664,6 @@ namespace AltGeoRelayService.Droid
             }
 
             MainModel.Instance.ReceivedPermissions();
-        }
-
-        protected override void OnDestroy()
-        {
-            DeviceLogRelayService.DebugUpdated -= OnRelayDebugUpdated;
-            base.OnDestroy();
-        }
-
-        private void OnRelayDebugUpdated(string requestJson, string responseText)
-        {
-            if (_txtRelayRequest == null || _txtRelayResponse == null) return;
-
-            RunOnUiThread(() =>
-            {
-                if (_txtRelayRequest != null)
-                {
-                    _txtRelayRequest.Text = requestJson ?? string.Empty;
-                }
-                if (_txtRelayResponse != null)
-                {
-                    _txtRelayResponse.Text = responseText ?? string.Empty;
-                }
-            });
         }
 
         private void ToggleRelayService()

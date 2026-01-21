@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="ApplicationName">ALTGEO Relay Service</string>
+  <string name="ApplicationName">CatalystFacadeDemo</string>
   <string name="LoadSubscription">Load Subscription</string>
   <string name="Subscription">Subscription</string>
   <string name="Sensor">Sensor</string>

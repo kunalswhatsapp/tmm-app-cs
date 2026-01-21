@@ -20,7 +20,7 @@
 			<data android:scheme="mailto" />
 		</intent>
 	</queries>
-	<application android:label="@string/ApplicationName" android:icon="@drawable/map_marker" android:theme="@style/AppTheme">
+	<application android:label="AltGeo relay service" android:icon="@drawable/map_marker" android:theme="@style/AppTheme">
 		<provider android:name="androidx.core.content.FileProvider" android:authorities="${applicationId}.provider" android:exported="false" android:grantUriPermissions="true">
 			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths" />
 		</provider>
