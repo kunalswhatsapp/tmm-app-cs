@@ -781,6 +781,83 @@
         </TableRow>
       </TableLayout>
     </ScrollView>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#E0E0E0"
+        android:padding="5dp"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:text="Last API Request/Response"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:background="#C0C0C0" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#FFFFFF"
+            android:padding="5dp">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Request Payload:"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:padding="3dp" />
+                <TextView
+                    android:id="@+id/txtLastApiPayload"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="No data sent yet"
+                    android:textSize="10sp"
+                    android:fontFamily="monospace"
+                    android:background="#F5F5F5" />
+                <TextView
+                    android:text="Response:"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:padding="3dp"
+                    android:layout_marginTop="5dp" />
+                <TextView
+                    android:id="@+id/txtLastApiResponse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="No response yet"
+                    android:textSize="10sp"
+                    android:fontFamily="monospace"
+                    android:background="#F5F5F5" />
+                <TextView
+                    android:text="Status:"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:padding="3dp"
+                    android:layout_marginTop="5dp" />
+                <TextView
+                    android:id="@+id/txtLastApiStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="No status"
+                    android:textSize="10sp"
+                    android:fontFamily="monospace"
+                    android:background="#F5F5F5" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
   </LinearLayout>
 </LinearLayout>
 </ScrollView>

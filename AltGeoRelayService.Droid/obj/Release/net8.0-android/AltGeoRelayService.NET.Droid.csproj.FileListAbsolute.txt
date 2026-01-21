@@ -188,3 +188,4 @@ D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\stamp\_Con
 D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\stamp\_GenerateJavaStubs.stamp
 D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\stamp\_GeneratePackageManagerJava.stamp
 D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\stamp\_ResolveLibraryProjectImports.stamp
+D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\res\values\colors.xml

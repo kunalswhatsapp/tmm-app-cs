@@ -96,6 +96,13 @@
   <string name="PitchPrecision">Pitch Precision:</string>
   <string name="RollPrecision">RollPrecision:</string>
   <string name="YawPrecision">Yaw Precision:</string>
+  <string name="LastApiRequestResponse">Last API Request/Response</string>
+  <string name="RequestPayload">Request Payload:</string>
+  <string name="Response">Response:</string>
+  <string name="Status">Status:</string>
+  <string name="NoDataSentYet">No data sent yet</string>
+  <string name="NoResponseYet">No response yet</string>
+  <string name="NoStatus">No status</string>
 </resources>
 
 

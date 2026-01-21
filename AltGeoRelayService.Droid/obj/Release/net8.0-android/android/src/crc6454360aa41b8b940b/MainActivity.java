@@ -17,7 +17,6 @@ public class MainActivity
 			"n_onResume:()V:GetOnResumeHandler\n" +
 			"n_onPause:()V:GetOnPauseHandler\n" +
 			"n_onRequestPermissionsResult:(I[Ljava/lang/String;[I)V:GetOnRequestPermissionsResult_IarrayLjava_lang_String_arrayIHandler\n" +
-			"n_onDestroy:()V:GetOnDestroyHandler\n" +
 			"";
 		mono.android.Runtime.register ("AltGeoRelayService.Droid.MainActivity, AltGeoRelayService.Droid", MainActivity.class, __md_methods);
 	}
@@ -86,14 +85,6 @@ public class MainActivity
 	}
 
 	private native void n_onRequestPermissionsResult (int p0, java.lang.String[] p1, int[] p2);
-
-
-	public void onDestroy ()
-	{
-		n_onDestroy ();
-	}
-
-	private native void n_onDestroy ();
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

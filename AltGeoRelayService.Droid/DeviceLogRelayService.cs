@@ -21,7 +21,29 @@ namespace AltGeoRelayService.Droid
         private static CancellationTokenSource _cts;
         private static Task _loopTask;
 
+        private static string _lastPayload;
+        private static string _lastResponse;
+        private static string _lastStatus;
+        private static readonly object _lock = new object();
+
         internal static bool IsRunning => _cts != null && !_cts.IsCancellationRequested;
+
+        public static event EventHandler<ApiDataEventArgs> ApiDataUpdated;
+
+        public class ApiDataEventArgs : EventArgs
+        {
+            public string Payload { get; set; }
+            public string Response { get; set; }
+            public string Status { get; set; }
+        }
+
+        public static (string Payload, string Response, string Status) GetLastApiData()
+        {
+            lock (_lock)
+            {
+                return (_lastPayload ?? "No data sent yet", _lastResponse ?? "No response yet", _lastStatus ?? "No status");
+            }
+        }
 
         internal static void Start(Context context, string tenantId)
         {
@@ -222,11 +244,41 @@ namespace AltGeoRelayService.Droid
                 mobileBatteryHealth = mobileBatteryHealth
             };
 
-            var json = JsonConvert.SerializeObject(payload);
+            var json = JsonConvert.SerializeObject(payload, Formatting.Indented);
             using var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            // Store payload
+            lock (_lock)
+            {
+                _lastPayload = json;
+            }
 
             using var resp = await Http.PostAsync(Endpoint, content, ct).ConfigureAwait(false);
             var body = await resp.Content.ReadAsStringAsync(ct).ConfigureAwait(false);
+            
+            // Store response and status
+            var statusText = $"HTTP {(int)resp.StatusCode} {resp.ReasonPhrase}";
+            lock (_lock)
+            {
+                _lastResponse = body;
+                _lastStatus = statusText;
+            }
+
+            // Notify UI thread
+            try
+            {
+                ApiDataUpdated?.Invoke(null, new ApiDataEventArgs
+                {
+                    Payload = json,
+                    Response = body,
+                    Status = statusText
+                });
+            }
+            catch
+            {
+                // Ignore UI update errors
+            }
+
             if (!resp.IsSuccessStatusCode)
             {
                 throw new Exception($"HTTP {(int)resp.StatusCode}: {body}");

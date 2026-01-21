@@ -26,8 +26,8 @@ public final class R {
 		public static final int browser_actions_divider_color = 0x7f020003;
 		public static final int browser_actions_text_color = 0x7f020004;
 		public static final int browser_actions_title_color = 0x7f020005;
-		public static final int notification_action_color_filter = 0x7f020006;
-		public static final int notification_icon_bg_color = 0x7f020007;
+		public static final int notification_action_color_filter = 0x7f020007;
+		public static final int notification_icon_bg_color = 0x7f020008;
 	}
 	public static final class dimen {
 		public static final int browser_actions_context_menu_max_width = 0x7f030000;

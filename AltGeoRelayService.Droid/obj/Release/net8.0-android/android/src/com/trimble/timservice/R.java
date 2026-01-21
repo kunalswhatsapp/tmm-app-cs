@@ -20,8 +20,8 @@ public final class R {
 		public static final int fontWeight = 0x7f01000a;
 	}
 	public static final class color {
-		public static final int notification_action_color_filter = 0x7f020006;
-		public static final int notification_icon_bg_color = 0x7f020007;
+		public static final int notification_action_color_filter = 0x7f020007;
+		public static final int notification_icon_bg_color = 0x7f020008;
 	}
 	public static final class dimen {
 		public static final int compat_button_inset_horizontal_material = 0x7f030002;

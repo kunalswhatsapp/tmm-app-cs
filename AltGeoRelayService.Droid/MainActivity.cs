@@ -24,6 +24,9 @@ namespace AltGeoRelayService.Droid
         private Dialog _progressDialog;
         private bool _shownConnectedHint;
         private Button _btnRelayService;
+        private TextView _txtLastApiPayload;
+        private TextView _txtLastApiResponse;
+        private TextView _txtLastApiStatus;
 
         private static readonly int LocalSettingsRequest = GetUniqueRequestCode();
         private static readonly int RequestLogin = GetUniqueRequestCode();
@@ -277,6 +280,41 @@ namespace AltGeoRelayService.Droid
             {
                 MainModel.Instance.GoStatic(((Switch)sender).Checked);
             };
+
+            // Initialize API data display
+            _txtLastApiPayload = FindViewById<TextView>(Resource.Id.txtLastApiPayload);
+            _txtLastApiResponse = FindViewById<TextView>(Resource.Id.txtLastApiResponse);
+            _txtLastApiStatus = FindViewById<TextView>(Resource.Id.txtLastApiStatus);
+
+            // Subscribe to API data updates
+            DeviceLogRelayService.ApiDataUpdated += OnApiDataUpdated;
+
+            // Load initial API data if available
+            UpdateApiDataDisplay();
+        }
+
+        private void UpdateApiDataDisplay(string payload = null, string response = null, string status = null)
+        {
+            if (payload == null || response == null || status == null)
+            {
+                var (lastPayload, lastResponse, lastStatus) = DeviceLogRelayService.GetLastApiData();
+                payload = lastPayload;
+                response = lastResponse;
+                status = lastStatus;
+            }
+
+            if (_txtLastApiPayload != null)
+            {
+                _txtLastApiPayload.Text = payload;
+            }
+            if (_txtLastApiResponse != null)
+            {
+                _txtLastApiResponse.Text = response;
+            }
+            if (_txtLastApiStatus != null)
+            {
+                _txtLastApiStatus.Text = status;
+            }
         }
 
         private void UpdateExternalReceiverBatteryLevel()
@@ -576,6 +614,9 @@ namespace AltGeoRelayService.Droid
                 FindViewById<TextView>(Resource.Id.txtMarker).Text = markerText;
             }
 
+            // Update API data display
+            UpdateApiDataDisplay();
+
             base.OnResume();
         }
 
@@ -607,8 +648,17 @@ namespace AltGeoRelayService.Droid
         protected override void OnPause()
         {
             MainModel.Instance.ProgressMsgChanged -= InstanceOnProgressMsgChanged;
+            DeviceLogRelayService.ApiDataUpdated -= OnApiDataUpdated;
             HideProgress();
             base.OnPause();
+        }
+
+        private void OnApiDataUpdated(object sender, DeviceLogRelayService.ApiDataEventArgs args)
+        {
+            RunOnUiThread(() =>
+            {
+                UpdateApiDataDisplay(args.Payload, args.Response, args.Status);
+            });
         }
 
 
