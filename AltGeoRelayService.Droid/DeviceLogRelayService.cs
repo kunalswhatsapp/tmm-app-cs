@@ -55,7 +55,7 @@ namespace AltGeoRelayService.Droid
             }
         }
 
-        private static void AddLog(string message)
+        internal static void AddLog(string message)
         {
             var timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             var logEntry = $"[{timestamp}] {message}\n";
@@ -159,6 +159,7 @@ namespace AltGeoRelayService.Droid
 
         internal static void Start(Context context, string tenantId)
         {
+            AddLog("Start button clicked, Start() WAS CALLED");
             try
             {
                 lock (_logLock)
@@ -202,8 +203,10 @@ namespace AltGeoRelayService.Droid
                 var appContext = context.ApplicationContext;
 
                 AddLog("Creating background task...");
+                AddLog("Start button clicked, Start() WAS CALLED, Task.Run scheduled");
                 _loopTask = Task.Run(async () =>
                 {
+                    AddLog("Start button clicked, Start() WAS CALLED, Task.Run scheduled, Background task entered");
                     try
                     {
                         AddLog("Background task started successfully");

@@ -49,11 +49,23 @@
             android:layout_height="wrap_content"
             android:text="@string/LoadSubscription" />
         <Button
-            android:id="@+id/btnRelayService"
+            android:id="@+id/btnStartRelay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:text="Start Relay" />
+        <Button
+            android:id="@+id/btnStopRelay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Stop Relay" />
+        <EditText
+            android:id="@+id/txtSimple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Simple text box" />
 		<Button
             android:id="@+id/btnCheckOnDemand"
             android:layout_width="wrap_content"

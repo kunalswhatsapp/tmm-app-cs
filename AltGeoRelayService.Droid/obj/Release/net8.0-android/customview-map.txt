@@ -7,6 +7,7 @@ corners;obj\Release\net8.0-android\res\drawable\roundedrectgreen.xml
 corners;obj\Release\net8.0-android\res\drawable\roundedrectgrey.xml
 corners;obj\Release\net8.0-android\res\drawable\roundedrectred.xml
 EditText;obj\Release\net8.0-android\res\layout\configuration.xml
+EditText;obj\Release\net8.0-android\res\layout\main.xml
 external-cache-path;D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\lp\30\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 external-path;D:\CatalystFacade\AltGeoRelayService.Droid\obj\Release\net8.0-android\lp\30\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 external-path;obj\Release\net8.0-android\res\xml\provider_paths.xml
