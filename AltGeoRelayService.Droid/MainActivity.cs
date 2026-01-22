@@ -24,9 +24,7 @@ namespace AltGeoRelayService.Droid
         private UnitsAngle _angleUnits = new UnitsAngle(AngleTypes.Deg, 8);
         private Dialog _progressDialog;
         private bool _shownConnectedHint;
-        private Button _btnStartRelay;
-        private Button _btnStopRelay;
-        private EditText _txtSimple;
+        private Button _btnRelayService;
         private TextView _txtLastApiPayload;
         private TextView _txtLastApiResponse;
         private TextView _txtLastApiStatus;
@@ -54,19 +52,12 @@ namespace AltGeoRelayService.Droid
             var toolbar = FindViewById<Toolbar>(Resource.Id.Toolbar);
             SetActionBar(toolbar);
 
-            _btnStartRelay = FindViewById<Button>(Resource.Id.btnStartRelay);
-            if (_btnStartRelay != null)
+            _btnRelayService = FindViewById<Button>(Resource.Id.btnRelayService);
+            if (_btnRelayService != null)
             {
-                _btnStartRelay.Click += (s, e) => StartRelay();
+                _btnRelayService.Click += (s, e) => ToggleRelayService();
+                UpdateRelayButtonText();
             }
-
-            _btnStopRelay = FindViewById<Button>(Resource.Id.btnStopRelay);
-            if (_btnStopRelay != null)
-            {
-                _btnStopRelay.Click += (s, e) => StopRelay();
-            }
-
-            _txtSimple = FindViewById<EditText>(Resource.Id.txtSimple);
 
             List<string> criticalPermissions = new List<string> {
                 Manifest.Permission.Internet,
@@ -749,89 +740,108 @@ namespace AltGeoRelayService.Droid
             MainModel.Instance.ReceivedPermissions();
         }
 
-        private void StartRelay()
+        private void ToggleRelayService()
         {
-            DeviceLogRelayService.AddLog("Start button clicked");
-            
-            // Show message in text box
-            RunOnUiThread(() =>
-            {
-                if (_txtSimple != null)
-                {
-                    _txtSimple.Text = "Start button clicked";
-                }
-            });
-
             if (DeviceLogRelayService.IsRunning)
             {
+                DeviceLogRelayService.Stop();
                 RunOnUiThread(() =>
                 {
-                    Toast.MakeText(this, "Relay is already running.", ToastLength.Short).Show();
+                    Toast.MakeText(this, "Relay stopped.", ToastLength.Short).Show();
+                    UpdateRelayButtonText();
                 });
                 return;
             }
 
-            // Use default tenant ID or get from preferences
-            var tenantId = Preferences.Get("altgeo_tenantId", "default");
-            
-            try
+            var existingTenant = Preferences.Get("altgeo_tenantId", string.Empty);
+            if (!string.IsNullOrWhiteSpace(existingTenant))
             {
-                // Clear previous logs and update display immediately
-                RunOnUiThread(() =>
+                try
                 {
-                    UpdateApiDataDisplay();
-                });
-                
-                DeviceLogRelayService.Start(this, tenantId);
-                
-                // Wait a moment for initial logs to be written, then update display
-                Task.Delay(100).ContinueWith(_ =>
+                    // Clear previous logs and update display immediately
+                    RunOnUiThread(() =>
+                    {
+                        UpdateApiDataDisplay();
+                    });
+                    
+                    DeviceLogRelayService.Start(this, existingTenant);
+                    
+                    // Wait a moment for initial logs to be written, then update display
+                    Task.Delay(100).ContinueWith(_ =>
+                    {
+                        RunOnUiThread(() =>
+                        {
+                            Toast.MakeText(this, "Relay started (push every 30 seconds).", ToastLength.Short).Show();
+                            UpdateRelayButtonText();
+                            UpdateApiDataDisplay(); // Refresh logs
+                        });
+                    });
+                }
+                catch (Exception ex)
                 {
                     RunOnUiThread(() =>
                     {
-                        Toast.MakeText(this, "Relay started (push every 30 seconds).", ToastLength.Short).Show();
-                        UpdateApiDataDisplay(); // Refresh logs
+                        Toast.MakeText(this, $"Failed to start relay: {ex.Message}", ToastLength.Long).Show();
+                        UpdateApiDataDisplay(); // Show error in logs
                     });
-                });
-            }
-            catch (Exception ex)
-            {
-                RunOnUiThread(() =>
-                {
-                    Toast.MakeText(this, $"Failed to start relay: {ex.Message}", ToastLength.Long).Show();
-                    UpdateApiDataDisplay(); // Show error in logs
-                });
-            }
-        }
-
-        private void StopRelay()
-        {
-            DeviceLogRelayService.AddLog("Stop button clicked");
-            
-            // Show message in text box
-            RunOnUiThread(() =>
-            {
-                if (_txtSimple != null)
-                {
-                    _txtSimple.Text = "Stop button clicked";
                 }
-            });
-
-            if (!DeviceLogRelayService.IsRunning)
-            {
-                RunOnUiThread(() =>
-                {
-                    Toast.MakeText(this, "Relay is not running.", ToastLength.Short).Show();
-                });
                 return;
             }
 
-            DeviceLogRelayService.Stop();
-            RunOnUiThread(() =>
+            var input = new EditText(this)
             {
-                Toast.MakeText(this, "Relay stopped.", ToastLength.Short).Show();
-                UpdateApiDataDisplay();
-            });
+                Hint = "tenantId"
+            };
+
+            new AlertDialog.Builder(this)
+                .SetTitle("AltGeo Relay")
+                .SetMessage("Enter tenantId")
+                .SetView(input)
+                .SetPositiveButton("Start", (sender, args) =>
+                {
+                    var tenantId = input.Text?.Trim();
+                    if (string.IsNullOrWhiteSpace(tenantId))
+                    {
+                        Toast.MakeText(this, "tenantId is required.", ToastLength.Short).Show();
+                        return;
+                    }
+                    Preferences.Set("altgeo_tenantId", tenantId);
+                    
+                    // Clear previous logs and update display immediately
+                    UpdateApiDataDisplay();
+                    
+                    try
+                    {
+                        DeviceLogRelayService.Start(this, tenantId);
+                        
+                        // Wait a moment for initial logs to be written, then update display
+                        Task.Delay(100).ContinueWith(_ =>
+                        {
+                            RunOnUiThread(() =>
+                            {
+                                Toast.MakeText(this, "Relay started (push every 30 seconds).", ToastLength.Short).Show();
+                                UpdateRelayButtonText();
+                                UpdateApiDataDisplay(); // Refresh logs
+                            });
+                        });
+                    }
+                    catch (Exception ex)
+                    {
+                        RunOnUiThread(() =>
+                        {
+                            Toast.MakeText(this, $"Failed to start relay: {ex.Message}", ToastLength.Long).Show();
+                            UpdateApiDataDisplay(); // Show error in logs
+                        });
+                    }
+                })
+                .SetNegativeButton("Cancel", (sender, args) => { })
+                .Show();
+        }
+
+        private void UpdateRelayButtonText()
+        {
+            if (_btnRelayService == null) return;
+            _btnRelayService.Text = DeviceLogRelayService.IsRunning ? "Stop Relay" : "Start Relay";
         }
         
         private void StartLogRefresh()

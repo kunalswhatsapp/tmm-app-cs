@@ -1,4 +1,0 @@
-int string ApplicationName 0x7f010000
-int string Hello 0x7f010001
-int string app_name 0x7f010002
-int string com_trimble_empower_modulemanager_app_name 0x7f010003
